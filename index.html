@@ -149,6 +149,7 @@
         .cars-logo .car { color: #2d7aff; }
         .cars-logo small { font-size: 0.6rem; color: #8a98aa; }
 
+        /* Layout principal: Sidebar + Contenu */
         .main-layout {
             max-width: 1400px;
             margin: 2rem auto;
@@ -156,8 +157,10 @@
             display: flex;
             gap: 2rem;
         }
+
+        /* Sidebar (recherche + map + contact) */
         .sidebar {
-            width: 300px;
+            width: 320px;
             flex-shrink: 0;
             background: #13161d;
             border-radius: 24px;
@@ -181,38 +184,41 @@
             border-radius: 40px;
             color: white;
             outline: none;
+            margin-bottom: 1.5rem;
         }
-        
-        /* Google Maps intégrée */
         .map-container {
-            margin-top: 1.5rem;
-            padding-top: 1rem;
-            border-top: 1px solid #2d3340;
+            margin-bottom: 1.5rem;
         }
         .map-container iframe {
             width: 100%;
             border-radius: 16px;
-            margin-top: 0.5rem;
             border: 1px solid #2d3340;
         }
-        .map-link {
-            margin-top: 0.8rem;
+        .contact-info {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #2d3340;
         }
-        .map-link a {
-            display: inline-flex;
+        .contact-info p {
+            font-size: 0.8rem;
+            margin: 0.5rem 0;
+            display: flex;
             align-items: center;
             gap: 8px;
+        }
+        .contact-info i {
+            color: #2d7aff;
+            width: 24px;
+        }
+        .contact-info a {
             color: #2d7aff;
             text-decoration: none;
-            background: #1e232c;
-            padding: 0.5rem 1rem;
-            border-radius: 40px;
-            font-size: 0.8rem;
-            width: 100%;
-            justify-content: center;
         }
-        
-        .cars-section { flex: 1; }
+
+        /* Contenu principal */
+        .cars-section {
+            flex: 1;
+        }
         .section-header {
             display: flex;
             justify-content: space-between;
@@ -237,6 +243,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
             gap: 1.8rem;
+            margin-bottom: 3rem;
         }
         .car-card {
             background: #13161d;
@@ -299,83 +306,96 @@
         }
         .book-btn:hover { background: #2d7aff; }
 
-        /* Section des avis Google Maps */
+        /* Section avis Google - carrousel horizontal */
         .reviews-section {
             max-width: 1400px;
-            margin: 3rem auto;
+            margin: 0 auto 2rem auto;
             padding: 0 1.5rem;
         }
         .reviews-header {
-            text-align: center;
-            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
         }
         .reviews-header h2 {
-            font-size: 1.8rem;
+            font-size: 1.3rem;
             font-weight: 700;
-            background: linear-gradient(135deg, #fff, #2d7aff);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            display: inline-flex;
+            display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
         .reviews-header h2 i {
             color: #2d7aff;
-            background: none;
-            -webkit-background-clip: unset;
         }
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        .reviews-carousel {
+            display: flex;
             gap: 1.5rem;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding-bottom: 0.5rem;
+            scrollbar-width: thin;
+        }
+        .reviews-carousel::-webkit-scrollbar {
+            height: 5px;
+        }
+        .reviews-carousel::-webkit-scrollbar-track {
+            background: #1e232c;
+            border-radius: 10px;
+        }
+        .reviews-carousel::-webkit-scrollbar-thumb {
+            background: #2d7aff;
+            border-radius: 10px;
         }
         .review-card {
+            min-width: 300px;
+            max-width: 320px;
             background: #13161d;
             border-radius: 20px;
             padding: 1.2rem;
             border: 1px solid #2d3340;
             transition: 0.2s;
+            flex-shrink: 0;
         }
         .review-card:hover {
             border-color: #2d7aff;
-            transform: translateY(-2px);
         }
         .review-header {
             display: flex;
             align-items: center;
             gap: 12px;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
         }
         .review-avatar {
-            width: 45px;
-            height: 45px;
+            width: 42px;
+            height: 42px;
             background: linear-gradient(135deg, #2d7aff, #5c9eff);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: white;
         }
         .review-info h4 {
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: 600;
         }
         .review-stars {
             color: #ffc107;
-            font-size: 0.8rem;
-            margin-top: 4px;
+            font-size: 0.7rem;
+            margin-top: 3px;
         }
         .review-text {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             line-height: 1.5;
             color: #ccd6f0;
             margin-bottom: 0.8rem;
         }
         .review-source {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             color: #8a98aa;
             display: flex;
             align-items: center;
@@ -385,12 +405,13 @@
             color: #2d7aff;
         }
 
+        /* Partenaires */
         .partners {
             background: #0f1119;
             border-top: 1px solid #2d3340;
             border-bottom: 1px solid #2d3340;
             padding: 1.5rem 0;
-            margin-top: 2rem;
+            margin-top: 1rem;
         }
         .partners h3 {
             text-align: center;
@@ -423,6 +444,7 @@
             color: #6a7a90;
         }
 
+        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -478,19 +500,20 @@
             background: #128C7E;
         }
 
-        @media (max-width: 780px) {
+        @media (max-width: 850px) {
             .landing-logo h1 { font-size: 3rem; }
             .hero-content h2 { font-size: 2rem; }
             .main-layout { flex-direction: column; }
             .sidebar { width: 100%; position: static; }
             .btn-reserve { padding: 0.8rem 1.8rem; font-size: 1rem; }
-            .reviews-grid { grid-template-columns: 1fr; }
+            .reviews-carousel { gap: 1rem; }
+            .review-card { min-width: 260px; }
         }
     </style>
 </head>
 <body>
 
-<!-- ========== PAGE LANDING (ACCUEIL) ========== -->
+<!-- ========== PAGE LANDING ========== -->
 <div id="landingPage" class="landing">
     <div class="landing-header">
         <div class="landing-logo">
@@ -519,9 +542,10 @@
     </div>
 
     <div class="main-layout">
+        <!-- Sidebar fixe avec recherche + map + contact -->
         <aside class="sidebar">
             <div class="search-box">
-                <h3><i class="fas fa-search"></i> Chercher</h3>
+                <h3><i class="fas fa-search"></i> Rechercher</h3>
                 <input type="text" id="searchInput" placeholder="Range, Audi, BMW ...">
             </div>
             
@@ -535,29 +559,33 @@
                     allowfullscreen="" 
                     loading="lazy">
                 </iframe>
-                <div class="map-link">
-                    <a href="https://www.google.com/maps/place/Hycar+location+de+voiture+sal%C3%A9/@34.0614681,-6.8071042,17z/" target="_blank">
-                        <i class="fas fa-directions"></i> Ouvrir dans Google Maps
-                    </a>
-                </div>
+            </div>
+            
+            <div class="contact-info">
+                <h3><i class="fas fa-phone-alt"></i> Contact</h3>
+                <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/212661081476" target="_blank">+212 661 081 476</a></p>
+                <p><i class="fas fa-envelope"></i> hycar.ma@gmail.com</p>
+                <p><i class="fas fa-clock"></i> Lun-Sam: 09:00 - 19:00</p>
             </div>
         </aside>
 
+        <!-- Contenu principal -->
         <section class="cars-section">
             <div class="section-header">
                 <h2>🚘 Nos véhicules</h2>
                 <span class="cars-count" id="carsCount">0 modèles</span>
             </div>
             <div class="cars-grid" id="carsGrid"></div>
-        </section>
-    </div>
 
-    <!-- SECTION DES AVIS GOOGLE MAPS -->
-    <div class="reviews-section">
-        <div class="reviews-header">
-            <h2><i class="fab fa-google"></i> Ce que nos clients disent</h2>
-        </div>
-        <div class="reviews-grid" id="reviewsGrid"></div>
+            <!-- Avis Google en carrousel horizontal -->
+            <div class="reviews-section">
+                <div class="reviews-header">
+                    <h2><i class="fab fa-google"></i> Ce que nos clients disent</h2>
+                    <span style="font-size: 0.7rem; color:#8a98aa;"><i class="fas fa-arrow-left"></i> glisser <i class="fas fa-arrow-right"></i></span>
+                </div>
+                <div class="reviews-carousel" id="reviewsCarousel"></div>
+            </div>
+        </section>
     </div>
 
     <div class="partners">
@@ -658,14 +686,11 @@
         });
     }
 
-    // Afficher les avis
     function renderReviews() {
-        const container = document.getElementById("reviewsGrid");
+        const container = document.getElementById("reviewsCarousel");
         if (!container) return;
         
-        const getInitials = (name) => {
-            return name.charAt(0).toUpperCase();
-        };
+        const getInitials = (name) => name.charAt(0).toUpperCase();
         
         container.innerHTML = reviews.map(review => `
             <div class="review-card">
@@ -678,7 +703,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="review-text">"${review.text}"</div>
+                <div class="review-text">"${review.text.substring(0, 120)}${review.text.length > 120 ? '...' : ''}"</div>
                 <div class="review-source">
                     <i class="fab fa-google"></i> Google Maps
                 </div>
