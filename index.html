@@ -21,19 +21,30 @@
             font-family: 'Plus Jakarta Sans', sans-serif;
             background: #0a0a0f;
             color: #fff;
+            overflow-x: hidden;
         }
 
         /* ========== LANDING PAGE ========== */
         .landing {
-            min-height: 100vh;
+            height: 100vh;
+            width: 100%;
             background: linear-gradient(135deg, rgba(0,0,0,0.85), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=1600&h=900&fit=crop');
             background-size: cover;
             background-position: center;
-            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 200;
+            transition: all 0.5s ease;
+        }
+
+        .landing.hide {
+            opacity: 0;
+            visibility: hidden;
         }
 
         .landing-content {
@@ -41,12 +52,8 @@
             padding: 2rem;
         }
 
-        .logo-landing {
-            margin-bottom: 2rem;
-        }
-
         .logo-landing h1 {
-            font-size: 5.5rem;
+            font-size: 5rem;
             font-weight: 800;
             letter-spacing: -3px;
             background: linear-gradient(135deg, #ffffff, #2d7aff);
@@ -63,7 +70,7 @@
         }
 
         .landing h2 {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             font-weight: 600;
             margin: 1.5rem 0 1rem;
         }
@@ -75,14 +82,14 @@
         .landing p {
             color: #bbb;
             margin-bottom: 2rem;
-            font-size: 1rem;
+            font-size: 0.95rem;
         }
 
         .btn-landing {
             background: #2d7aff;
             border: none;
-            padding: 1rem 2.5rem;
-            font-size: 1.1rem;
+            padding: 0.9rem 2.2rem;
+            font-size: 1rem;
             font-weight: 600;
             border-radius: 50px;
             color: white;
@@ -90,14 +97,12 @@
             transition: all 0.3s;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
 
         .btn-landing:hover {
             background: #1a5fd9;
-            transform: scale(1.05);
-            gap: 15px;
-            box-shadow: 0 10px 25px rgba(45,122,255,0.4);
+            transform: scale(1.02);
         }
 
         /* ========== PAGE PRINCIPALE ========== */
@@ -105,13 +110,14 @@
             display: none;
             background: #0a0a0f;
             min-height: 100vh;
+            width: 100%;
         }
 
         /* Header */
         .header {
             background: rgba(10,10,15,0.95);
             backdrop-filter: blur(10px);
-            padding: 1rem 2rem;
+            padding: 0.7rem 2rem;
             position: sticky;
             top: 0;
             z-index: 100;
@@ -127,19 +133,19 @@
         }
 
         .logo-small h2 {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 800;
             letter-spacing: -1px;
         }
 
         .logo-small .hy { color: #fff; }
         .logo-small .car { color: #2d7aff; }
-        .logo-small small { font-size: 0.6rem; color: #777; display: block; }
+        .logo-small small { font-size: 0.55rem; color: #777; display: block; }
 
         /* Layout */
         .dashboard {
             max-width: 1400px;
-            margin: 2rem auto;
+            margin: 1.5rem auto;
             padding: 0 1.5rem;
             display: flex;
             gap: 2rem;
@@ -147,21 +153,21 @@
 
         /* Sidebar */
         .sidebar {
-            width: 300px;
+            width: 280px;
             flex-shrink: 0;
             background: #111118;
             border-radius: 20px;
-            padding: 1.5rem;
+            padding: 1.2rem;
             position: sticky;
-            top: 90px;
+            top: 80px;
             height: fit-content;
             border: 1px solid #1f1f2a;
         }
 
         .sidebar-title {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 600;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
             color: #2d7aff;
             display: flex;
             align-items: center;
@@ -170,13 +176,14 @@
 
         .search-input {
             width: 100%;
-            padding: 0.8rem 1rem;
+            padding: 0.7rem 1rem;
             background: #1a1a24;
             border: 1px solid #2a2a35;
             border-radius: 12px;
             color: #fff;
             outline: none;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
+            font-size: 0.85rem;
         }
 
         .search-input:focus {
@@ -184,18 +191,19 @@
         }
 
         .map-box {
-            margin: 1.5rem 0;
+            margin: 1.2rem 0;
         }
 
         .map-box iframe {
             width: 100%;
-            border-radius: 16px;
+            border-radius: 14px;
             border: none;
+            height: 160px;
         }
 
         .info-box {
-            margin-top: 1.5rem;
-            padding-top: 1.5rem;
+            margin-top: 1.2rem;
+            padding-top: 1.2rem;
             border-top: 1px solid #1f1f2a;
         }
 
@@ -203,13 +211,13 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            margin-bottom: 0.8rem;
-            font-size: 0.85rem;
+            margin-bottom: 0.7rem;
+            font-size: 0.8rem;
             color: #ccc;
         }
 
         .info-item i {
-            width: 30px;
+            width: 28px;
             color: #2d7aff;
         }
 
@@ -218,7 +226,7 @@
             text-decoration: none;
         }
 
-        /* Cars grid */
+        /* Cars container */
         .cars-container {
             flex: 1;
         }
@@ -227,44 +235,42 @@
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
         }
 
         .cars-header h2 {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: 600;
         }
 
         .cars-count {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             background: #2d7aff20;
-            padding: 0.2rem 0.8rem;
+            padding: 0.2rem 0.7rem;
             border-radius: 20px;
         }
 
         .cars-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 3rem;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.2rem;
         }
 
         .car-card {
             background: #111118;
-            border-radius: 20px;
+            border-radius: 18px;
             overflow: hidden;
             transition: all 0.3s;
             border: 1px solid #1f1f2a;
         }
 
         .car-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-3px);
             border-color: #2d7aff;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
         }
 
         .car-image {
-            height: 190px;
+            height: 170px;
             background-size: cover;
             background-position: center;
             position: relative;
@@ -272,47 +278,47 @@
 
         .car-badge {
             position: absolute;
-            top: 12px;
-            right: 12px;
+            top: 10px;
+            right: 10px;
             background: rgba(0,0,0,0.7);
             backdrop-filter: blur(5px);
-            padding: 0.2rem 0.8rem;
+            padding: 0.2rem 0.7rem;
             border-radius: 20px;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             font-weight: 600;
         }
 
         .car-details {
-            padding: 1.2rem;
+            padding: 1rem;
         }
 
         .car-name {
-            font-size: 1.2rem;
+            font-size: 1rem;
             font-weight: 700;
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.2rem;
         }
 
         .car-specs {
             display: flex;
-            gap: 1rem;
-            margin: 0.7rem 0;
-            font-size: 0.7rem;
+            gap: 0.8rem;
+            margin: 0.5rem 0;
+            font-size: 0.65rem;
             color: #999;
         }
 
         .car-specs i {
-            margin-right: 0.3rem;
+            margin-right: 0.2rem;
             color: #2d7aff;
         }
 
         .car-price {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 700;
-            margin: 0.5rem 0;
+            margin: 0.4rem 0;
         }
 
         .car-price span {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             font-weight: normal;
             color: #999;
         }
@@ -321,9 +327,10 @@
             width: 100%;
             background: #1a1a24;
             border: 1px solid #2a2a35;
-            padding: 0.7rem;
+            padding: 0.6rem;
             border-radius: 40px;
             font-weight: 600;
+            font-size: 0.8rem;
             color: #fff;
             cursor: pointer;
             transition: all 0.2s;
@@ -334,55 +341,38 @@
             border-color: #2d7aff;
         }
 
-        /* Reviews carousel */
+        /* Reviews - sans scroll horizontal */
         .reviews-wrapper {
-            margin: 2rem 0;
+            margin-top: 2rem;
         }
 
         .reviews-title {
             display: flex;
             align-items: center;
-            gap: 10px;
-            margin-bottom: 1.5rem;
+            gap: 8px;
+            margin-bottom: 1rem;
         }
 
         .reviews-title i {
             color: #2d7aff;
-            font-size: 1.3rem;
+            font-size: 1.1rem;
         }
 
         .reviews-title h3 {
-            font-size: 1.2rem;
+            font-size: 1rem;
             font-weight: 600;
         }
 
-        .reviews-scroll {
-            display: flex;
-            gap: 1.2rem;
-            overflow-x: auto;
-            padding-bottom: 0.5rem;
-            scrollbar-width: thin;
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1rem;
         }
 
-        .reviews-scroll::-webkit-scrollbar {
-            height: 4px;
-        }
-
-        .reviews-scroll::-webkit-scrollbar-track {
-            background: #1a1a24;
-            border-radius: 10px;
-        }
-
-        .reviews-scroll::-webkit-scrollbar-thumb {
-            background: #2d7aff;
-            border-radius: 10px;
-        }
-
-        .review-item {
-            min-width: 280px;
+        .review-card {
             background: #111118;
-            border-radius: 16px;
-            padding: 1rem;
+            border-radius: 14px;
+            padding: 0.9rem;
             border: 1px solid #1f1f2a;
         }
 
@@ -390,33 +380,38 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.7rem;
         }
 
         .review-avatar {
-            width: 40px;
-            height: 40px;
+            width: 35px;
+            height: 35px;
             background: linear-gradient(135deg, #2d7aff, #1a5fd9);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .review-info {
+            flex: 1;
         }
 
         .review-name {
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
         .review-stars {
             color: #f5b042;
-            font-size: 0.7rem;
-            margin-top: 3px;
+            font-size: 0.65rem;
+            margin-top: 2px;
         }
 
         .review-text {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             line-height: 1.4;
             color: #bbb;
         }
@@ -426,48 +421,39 @@
             background: #0d0d12;
             border-top: 1px solid #1f1f2a;
             border-bottom: 1px solid #1f1f2a;
-            padding: 1.5rem 0;
+            padding: 1rem 0;
             margin-top: 2rem;
         }
 
         .partners h4 {
             text-align: center;
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             color: #777;
             letter-spacing: 2px;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
         }
 
-        .logos-scroll {
+        .logos-container {
             display: flex;
+            justify-content: center;
             gap: 2rem;
-            animation: scrollLogos 20s linear infinite;
-            width: fit-content;
+            flex-wrap: wrap;
         }
 
-        .logos-scroll i {
-            font-size: 1.8rem;
+        .logos-container i {
+            font-size: 1.5rem;
             color: #555;
             transition: 0.2s;
         }
 
-        .logos-scroll i:hover {
+        .logos-container i:hover {
             color: #2d7aff;
-        }
-
-        @keyframes scrollLogos {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
-        .logo-track {
-            overflow: hidden;
         }
 
         footer {
             text-align: center;
-            padding: 1.2rem;
-            font-size: 0.7rem;
+            padding: 1rem;
+            font-size: 0.65rem;
             color: #666;
         }
 
@@ -488,10 +474,10 @@
 
         .modal-content {
             background: #111118;
-            max-width: 450px;
+            max-width: 400px;
             width: 90%;
-            border-radius: 24px;
-            padding: 1.8rem;
+            border-radius: 20px;
+            padding: 1.5rem;
             border: 1px solid #2d7aff;
         }
 
@@ -499,11 +485,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
         }
 
         .close-modal {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             cursor: pointer;
             transition: 0.2s;
         }
@@ -513,24 +499,25 @@
         }
 
         .form-group {
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
         }
 
         .form-group label {
             display: block;
-            font-size: 0.75rem;
-            margin-bottom: 0.3rem;
+            font-size: 0.7rem;
+            margin-bottom: 0.2rem;
             color: #aaa;
         }
 
         .form-group input {
             width: 100%;
-            padding: 0.7rem;
+            padding: 0.6rem;
             background: #1a1a24;
             border: 1px solid #2a2a35;
-            border-radius: 12px;
+            border-radius: 10px;
             color: #fff;
             outline: none;
+            font-size: 0.85rem;
         }
 
         .form-group input:focus {
@@ -541,15 +528,15 @@
             width: 100%;
             background: #2d7aff;
             border: none;
-            padding: 0.8rem;
+            padding: 0.7rem;
             border-radius: 40px;
             font-weight: 600;
             color: white;
             cursor: pointer;
-            margin-top: 1rem;
+            margin-top: 0.8rem;
         }
 
-        @media (max-width: 900px) {
+        @media (max-width: 950px) {
             .dashboard {
                 flex-direction: column;
             }
@@ -557,11 +544,17 @@
                 width: 100%;
                 position: static;
             }
-            .logo-landing h1 {
-                font-size: 3.5rem;
+            .cars-grid {
+                grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            }
+            .reviews-grid {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
             }
             .landing h2 {
-                font-size: 1.8rem;
+                font-size: 1.6rem;
+            }
+            .logo-landing h1 {
+                font-size: 3.5rem;
             }
         }
     </style>
@@ -604,8 +597,8 @@
                 <div class="sidebar-title"><i class="fas fa-map-marker-alt"></i> Notre agence</div>
                 <iframe 
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13224.944130751724!2d-6.8071042!3d34.0614681!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda76bb210205a7f%3A0x252e909f921ba17c!2sHycar%20location%20de%20voiture%20sal%C3%A9!5e0!3m2!1sfr!2sma!4v1710000000000!5m2!1sfr!2sma" 
-                    height="200" 
-                    style="border:0; width:100%; border-radius:16px;" 
+                    height="160" 
+                    style="border:0; width:100%; border-radius:14px;" 
                     allowfullscreen="" 
                     loading="lazy">
                 </iframe>
@@ -627,13 +620,13 @@
             </div>
             <div class="cars-grid" id="carsGrid"></div>
 
-            <!-- Avis Google -->
+            <!-- Avis Google (grille sans scroll) -->
             <div class="reviews-wrapper">
                 <div class="reviews-title">
                     <i class="fab fa-google"></i>
                     <h3>Ce que nos clients disent sur Google</h3>
                 </div>
-                <div class="reviews-scroll" id="reviewsScroll"></div>
+                <div class="reviews-grid" id="reviewsGrid"></div>
             </div>
         </div>
     </div>
@@ -641,12 +634,13 @@
     <!-- Partenaires -->
     <div class="partners">
         <h4><i class="fas fa-handshake"></i> NOS PARTENAIRES</h4>
-        <div class="logo-track">
-            <div class="logos-scroll" id="logosSlider">
-                <i class="fas fa-car"></i> <i class="fas fa-truck"></i> <i class="fas fa-car-side"></i>
-                <i class="fas fa-gas-pump"></i> <i class="fas fa-caravan"></i> <i class="fas fa-shield-alt"></i>
-                <i class="fas fa-car"></i> <i class="fas fa-truck"></i>
-            </div>
+        <div class="logos-container">
+            <i class="fas fa-car"></i>
+            <i class="fas fa-truck"></i>
+            <i class="fas fa-car-side"></i>
+            <i class="fas fa-gas-pump"></i>
+            <i class="fas fa-caravan"></i>
+            <i class="fas fa-shield-alt"></i>
         </div>
     </div>
     <footer>
@@ -658,7 +652,7 @@
 <div id="bookingModal" class="modal">
     <div class="modal-content">
         <div class="modal-header">
-            <h3 style="color:#2d7aff;">📄 Nouvelle réservation</h3>
+            <h3 style="color:#2d7aff; font-size:1.1rem;">📄 Nouvelle réservation</h3>
             <span class="close-modal">&times;</span>
         </div>
         <form id="bookingForm">
@@ -703,8 +697,8 @@
 
     // Avis
     const reviews = [
-        { name: "Hamza Brhich", text: "Very good experience with this car rental bureau. The staff were friendly, professional, and clear with all the conditions.", rating: 5 },
-        { name: "Aymane Gadaan", text: "Location conforme à la description, propre et bien équipée. Le service est de grande qualité.", rating: 5 },
+        { name: "Hamza Brhich", text: "Very good experience with this car rental bureau. Professional staff, clean car.", rating: 5 },
+        { name: "Aymane Gadaan", text: "Location conforme à la description, propre et bien équipée. Service de qualité.", rating: 5 },
         { name: "Hmid Hamid", text: "Great service", rating: 5 },
         { name: "Hicham Maouhoub", text: "Merci pour votre service, voiture neuve", rating: 5 },
         { name: "Nawfel Hajjar", text: "Bonne service merci", rating: 5 },
@@ -728,7 +722,7 @@
         
         grid.innerHTML = filtered.map(car => `
             <div class="car-card">
-                <div class="car-image" style="background-image: url('${car.image}'); background-size: cover;">
+                <div class="car-image" style="background-image: url('${car.image}'); background-size: cover; background-position: center;">
                     <div class="car-badge">${car.type}</div>
                 </div>
                 <div class="car-details">
@@ -752,16 +746,16 @@
     }
 
     function renderReviews() {
-        const container = document.getElementById("reviewsScroll");
+        const container = document.getElementById("reviewsGrid");
         if(!container) return;
         
         container.innerHTML = reviews.map(rev => {
             const initial = rev.name.charAt(0);
             return `
-                <div class="review-item">
+                <div class="review-card">
                     <div class="review-header">
                         <div class="review-avatar">${initial}</div>
-                        <div>
+                        <div class="review-info">
                             <div class="review-name">${rev.name}</div>
                             <div class="review-stars">${'★'.repeat(rev.rating)}${'☆'.repeat(5-rev.rating)}</div>
                         </div>
@@ -788,11 +782,15 @@
         document.getElementById("bookingModal").style.display = "none";
     }
 
+    // Transition landing -> main
     document.getElementById("goToMain").addEventListener("click", () => {
-        document.getElementById("landingPage").style.display = "none";
-        document.getElementById("mainPage").style.display = "block";
-        renderCars("");
-        renderReviews();
+        document.getElementById("landingPage").classList.add("hide");
+        setTimeout(() => {
+            document.getElementById("landingPage").style.display = "none";
+            document.getElementById("mainPage").style.display = "block";
+            renderCars("");
+            renderReviews();
+        }, 500);
     });
 
     document.getElementById("bookingForm").addEventListener("submit", (e) => {
@@ -842,10 +840,6 @@
     today.setDate(today.getDate()+1);
     document.getElementById("startDate").min = today.toISOString().split('T')[0];
     document.getElementById("endDate").min = today.toISOString().split('T')[0];
-    
-    // Slider logos
-    const slider = document.getElementById("logosSlider");
-    if(slider) slider.innerHTML += slider.innerHTML;
 </script>
 </body>
 </html>
