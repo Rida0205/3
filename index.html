@@ -3,13 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>HY CAR | Location de Voitures</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>HY CAR | Location de Voitures Premium au Maroc</title>
+    <meta name="description" content="Location de voitures premium au Maroc par Haytam & Yassmin. Flotte de véhicules luxueux: Range Rover, Audi Q8, BMW. Réservation simple et livraison gratuite.">
+    <meta name="keywords" content="location voiture Maroc, location voiture Casablanca, location voiture Rabat, voiture premium, Range Rover, Audi Q8, BMW, Hyundai Tucson">
+    <meta name="author" content="HY CAR by Haytam & Yassmin">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="French">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hycar.ma/">
+    <meta property="og:title" content="HY CAR | Location de Voitures Premium au Maroc">
+    <meta property="og:description" content="Location de voitures premium par Haytam & Yassmin. Découvrez notre flotte de véhicules d'exception.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=1200&h=630&fit=crop">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://hycar.ma/">
+    <meta property="twitter:title" content="HY CAR | Location de Voitures Premium au Maroc">
+    <meta property="twitter:description" content="Location de voitures premium par Haytam & Yassmin. Découvrez notre flotte de véhicules d'exception.">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://hycar.ma/">
     
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100' height='100' fill='%231a1a2e'/%3E%3Ctext x='50' y='72' font-size='70' text-anchor='middle' fill='%232d7aff'%3E🚗%3C/text%3E%3C/svg%3E">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <style>
         * {
             margin: 0;
@@ -68,10 +93,6 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
-        body.light .car-card {
-            background: #ffffff;
-        }
-
         body.light .btn-book {
             background: #f0f0f0;
             border-color: #ddd;
@@ -111,12 +132,12 @@
             color: #999;
         }
 
-        /* Theme toggle button */
+        /* Theme toggle button - en haut à droite uniquement */
         .theme-toggle {
             background: rgba(45,122,255,0.15);
             border: 1px solid rgba(45,122,255,0.3);
             border-radius: 40px;
-            padding: 0.4rem 0.8rem;
+            padding: 0.4rem 1rem;
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -124,6 +145,7 @@
             font-size: 0.8rem;
             font-weight: 500;
             transition: all 0.2s;
+            margin-left: auto;
         }
 
         body.dark .theme-toggle {
@@ -147,9 +169,10 @@
         .landing {
             height: 100vh;
             width: 100%;
-            background: linear-gradient(135deg, rgba(0,0,0,0.85), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=1600&h=900&fit=crop');
+            background: linear-gradient(135deg, rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=1600&h=900&fit=crop');
             background-size: cover;
             background-position: center;
+            background-repeat: no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -169,6 +192,9 @@
         .landing-content {
             max-width: 800px;
             padding: 2rem;
+            background: rgba(0,0,0,0.3);
+            border-radius: 30px;
+            backdrop-filter: blur(3px);
         }
 
         .logo-landing h1 {
@@ -184,7 +210,7 @@
         .logo-landing .sub {
             font-size: 0.8rem;
             letter-spacing: 4px;
-            color: #aaa;
+            color: #ddd;
             margin-top: 0.5rem;
         }
 
@@ -259,6 +285,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative;
         }
 
         /* Logo au centre */
@@ -285,12 +312,6 @@
         }
         body.dark .logo-center small { color: #888; }
         body.light .logo-center small { color: #999; }
-
-        /* Placeholder pour l'alignement */
-        .header-left {
-            width: 120px;
-            visibility: hidden;
-        }
 
         /* Layout */
         .dashboard {
@@ -687,14 +708,15 @@
             .logo-center h2 {
                 font-size: 1.4rem;
             }
-            .header-left {
-                width: 80px;
-            }
             .landing h2 {
                 font-size: 1.6rem;
             }
             .logo-landing h1 {
                 font-size: 3rem;
+            }
+            .landing-content {
+                margin: 0 1rem;
+                padding: 1.5rem;
             }
         }
     </style>
@@ -710,7 +732,7 @@
             <h2>L'élégance <span>sur mesure</span></h2>
             <p>Découvrez notre flotte de véhicules premium. Réservation simple, rapide et livraison gratuite.</p>
             <button id="goToMain" class="btn-landing">
-                <i class="fas fa-calendar-check"></i> Réserver maintenant
+                <i class="fas fa-gem"></i> Découvrez nos merveilles
             </button>
         </div>
     </div>
@@ -719,7 +741,6 @@
     <div id="mainPage" class="main-page">
         <div class="header">
             <div class="header-inner">
-                <div class="header-left"></div>
                 <div class="logo-center">
                     <h2><span class="hy">HY</span><span class="car">CAR</span></h2>
                     <small>PREMIUM CAR RENTAL</small>
@@ -743,13 +764,14 @@
                         height="160" 
                         style="border:0; width:100%; border-radius:14px;" 
                         allowfullscreen="" 
-                        loading="lazy">
+                        loading="lazy"
+                        title="HY CAR Location de voitures Salé">
                     </iframe>
                 </div>
 
                 <div class="info-box">
                     <div class="sidebar-title"><i class="fas fa-phone-alt"></i> Contact</div>
-                    <div class="info-item"><i class="fab fa-whatsapp"></i> <a href="https://wa.me/212661081476" target="_blank">+212 661 081 476</a></div>
+                    <div class="info-item"><i class="fab fa-whatsapp"></i> <a href="https://wa.me/212661081476" target="_blank" rel="noopener noreferrer">+212 661 081 476</a></div>
                     <div class="info-item"><i class="fas fa-envelope"></i> hycar.ma@gmail.com</div>
                     <div class="info-item"><i class="fas fa-clock"></i> Lun-Sam : 09h - 19h</div>
                 </div>
@@ -784,11 +806,11 @@
             </div>
         </div>
         <footer>
-            <p>HY CAR © 2025 — Location de confiance | by Haytam & Yassmin</p>
+            <p>HY CAR © 2025 — Location de confiance | by Haytam & Yassmin | Location voiture Maroc</p>
         </footer>
     </div>
 
-    <!-- MODAL -->
+    <!-- MODAL (Sans champ téléphone) -->
     <div id="bookingModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -803,11 +825,7 @@
                 </div>
                 <div class="form-group">
                     <label>Nom complet</label>
-                    <input type="text" id="customerName" required>
-                </div>
-                <div class="form-group">
-                    <label>Téléphone WhatsApp</label>
-                    <input type="tel" id="customerPhone" required placeholder="+212 6XX XXX XXX">
+                    <input type="text" id="customerName" required placeholder="Votre nom complet">
                 </div>
                 <div class="form-group">
                     <label>Date de début</label>
@@ -874,7 +892,6 @@
             setTheme(!isDark);
         });
 
-        // Load saved theme
         const savedTheme = localStorage.getItem('hycar_theme');
         if (savedTheme === 'light') {
             setTheme(false);
@@ -894,18 +911,21 @@
             }
             
             grid.innerHTML = filtered.map(car => `
-                <div class="car-card">
-                    <div class="car-image" style="background-image: url('${car.image}'); background-size: cover; background-position: center;">
-                        <div class="car-badge">${car.type}</div>
-                    </div>
+                <div class="car-card" itemscope itemtype="https://schema.org/Product">
+                    <div class="car-image" style="background-image: url('${car.image}'); background-size: cover; background-position: center;" itemprop="image"></div>
+                    <div class="car-badge">${car.type}</div>
                     <div class="car-details">
-                        <div class="car-name">${car.name}</div>
+                        <div class="car-name" itemprop="name">${car.name}</div>
                         <div class="car-specs">
                             <span><i class="fas fa-gas-pump"></i> ${car.fuel}</span>
                             <span><i class="fas fa-users"></i> ${car.seats} places</span>
                             <span><i class="fas fa-cog"></i> Auto</span>
                         </div>
-                        <div class="car-price">${car.price} <span>DH/jour</span></div>
+                        <div class="car-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                            ${car.price} <span>DH/jour</span>
+                            <meta itemprop="price" content="${car.price}">
+                            <meta itemprop="priceCurrency" content="MAD">
+                        </div>
                         <button class="btn-book" data-id="${car.id}" data-name="${car.name}" data-price="${car.price}">Réserver</button>
                     </div>
                 </div>
@@ -947,7 +967,6 @@
             document.getElementById("startDate").value = tomorrow.toISOString().split('T')[0];
             document.getElementById("endDate").value = later.toISOString().split('T')[0];
             document.getElementById("customerName").value = "";
-            document.getElementById("customerPhone").value = "";
             document.getElementById("bookingModal").style.display = "flex";
         }
 
@@ -970,11 +989,10 @@
             const carId = parseInt(document.getElementById("carId").value);
             const carName = document.getElementById("modalCarName").value;
             const customerName = document.getElementById("customerName").value.trim();
-            const customerPhone = document.getElementById("customerPhone").value.trim();
             const startDate = document.getElementById("startDate").value;
             const endDate = document.getElementById("endDate").value;
             
-            if(!customerName || !customerPhone || !startDate || !endDate) {
+            if(!customerName || !startDate || !endDate) {
                 alert("Veuillez remplir tous les champs");
                 return;
             }
@@ -989,7 +1007,9 @@
             }
             
             const total = days * car.price;
-            const message = `Bonjour HY CAR! 👋\n\n📌 NOUVELLE RÉSERVATION\n🚗 ${carName}\n📅 Du ${startDate} au ${endDate}\n📆 ${days} jours\n💰 Total: ${total} DH\n\n👤 Client: ${customerName}\n📞 ${customerPhone}`;
+            
+            // Message sans numéro de téléphone (le client apparaîtra via WhatsApp)
+            const message = `Bonjour HY CAR! 👋\n\n📌 NOUVELLE RÉSERVATION\n🚗 ${carName}\n👤 Client: ${customerName}\n📅 Du ${startDate} au ${endDate}\n📆 ${days} jours\n💰 Total: ${total} DH\n\nMerci de confirmer cette réservation.`;
             
             window.open(`https://wa.me/${AGENCY_WHATSAPP}?text=${encodeURIComponent(message)}`, '_blank');
             alert(`✅ Demande envoyée sur WhatsApp ! Total: ${total} DH`);
