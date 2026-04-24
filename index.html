@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>HY CAR | Location de Voitures</title>
-    <!-- Favicon inline via emoji + fallback -->
+    <title>HY CAR | Location de Voitures Premium</title>
+    <!-- Favicon moderne -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50%' y='50%' text-anchor='middle' dy='.35em' font-size='70' fill='%232d7aff'>🚗</text></svg>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -17,51 +17,124 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: #1a1d24;
-            color: #eef2ff;
+            background: #0a0c12;
+            color: #fff;
+            overflow-x: hidden;
         }
 
-        /* Header élégant */
-        header {
-            background: #13161d;
-            padding: 1rem 2rem;
+        /* ========== PAGE D'ACCUEIL (LANDING) ========== */
+        .landing {
+            position: relative;
+            min-height: 100vh;
+            background: linear-gradient(135deg, rgba(0,0,0,0.75), rgba(0,0,0,0.55)), url('https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=1600&h=900&fit=crop');
+            background-size: cover;
+            background-position: center 30%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* header sur landing simple */
+        .landing-header {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+        }
+        .landing-logo h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+        .landing-logo .hy { color: #fff; }
+        .landing-logo .car { color: #2d7aff; }
+        .landing-logo small {
+            display: block;
+            font-size: 0.65rem;
+            color: #ccc;
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+        .hero-content h2 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            letter-spacing: -1px;
+        }
+        .hero-content h2 span {
+            color: #2d7aff;
+        }
+        .hero-content p {
+            font-size: 1.1rem;
+            color: #ddd;
+            margin-bottom: 2rem;
+        }
+        .btn-reserve {
+            background: #2d7aff;
+            border: none;
+            padding: 1rem 2.8rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 60px;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 8px 20px rgba(45,122,255,0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn-reserve:hover {
+            transform: scale(1.03);
+            background: #1669e6;
+            box-shadow: 0 12px 28px rgba(45,122,255,0.5);
+            gap: 15px;
+        }
+
+        /* ========== PAGE DES VOITURES (initialement cachée) ========== */
+        .cars-page {
+            display: none;
+            background: #0f121c;
+            min-height: 100vh;
+        }
+
+        /* header classique pour la page voitures */
+        .cars-header {
+            background: #0a0c12cc;
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #1e2a3a;
+            padding: 0.8rem 2rem;
             position: sticky;
             top: 0;
             z-index: 100;
-            border-bottom: 1px solid #2d3340;
         }
-
         .nav-container {
-            max-width: 1300px;
+            max-width: 1400px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-
-        .logo h1 {
-            font-size: 1.9rem;
+        .cars-logo h1 {
+            font-size: 1.8rem;
             font-weight: 800;
-            letter-spacing: -1px;
         }
-        .logo .hy { color: #fff; }
-        .logo .car { color: #2d7aff; }
-        .logo small {
-            font-size: 0.65rem;
-            color: #8e9aaf;
-            display: block;
-        }
+        .cars-logo .hy { color: #fff; }
+        .cars-logo .car { color: #2d7aff; }
+        .cars-logo small { font-size: 0.6rem; color: #8a98aa; }
 
-        /* Layout principal */
+        /* layout voitures */
         .main-layout {
-            max-width: 1300px;
+            max-width: 1400px;
             margin: 2rem auto;
             padding: 0 1.5rem;
             display: flex;
             gap: 2rem;
         }
-
-        /* Sidebar */
         .sidebar {
             width: 270px;
             flex-shrink: 0;
@@ -85,11 +158,9 @@
             background: #0e1017;
             border: 1px solid #2d3340;
             border-radius: 40px;
-            color: #fff;
-            font-size: 0.85rem;
+            color: white;
             outline: none;
         }
-        .search-box input:focus { border-color: #2d7aff; }
         .map-link {
             margin-top: 2rem;
             padding-top: 1rem;
@@ -101,22 +172,17 @@
             gap: 8px;
             color: #2d7aff;
             text-decoration: none;
-            font-size: 0.85rem;
             background: #1e232c;
             padding: 0.5rem 1rem;
             border-radius: 40px;
-            transition: 0.2s;
+            font-size: 0.8rem;
         }
-        .map-link a:hover { background: #2d7aff20; gap: 12px; }
-
-        /* Grille voitures */
         .cars-section { flex: 1; }
         .section-header {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
             margin-bottom: 1.8rem;
-            flex-wrap: wrap;
         }
         .section-header h2 {
             font-size: 1.5rem;
@@ -132,19 +198,16 @@
             padding: 0.2rem 0.8rem;
             border-radius: 20px;
         }
-
         .cars-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
             gap: 1.8rem;
         }
-
-        /* Carte voiture moderne */
         .car-card {
             background: #13161d;
             border-radius: 24px;
             overflow: hidden;
-            transition: 0.25s ease;
+            transition: 0.25s;
             border: 1px solid #2d3340;
         }
         .car-card:hover {
@@ -167,8 +230,6 @@
             padding: 0.2rem 0.8rem;
             border-radius: 30px;
             font-size: 0.65rem;
-            font-weight: 600;
-            border: 0.5px solid #2d7aff;
         }
         .car-info { padding: 1.2rem; }
         .car-title {
@@ -188,7 +249,7 @@
             font-size: 1.3rem;
             font-weight: 800;
         }
-        .price span { font-size: 0.65rem; font-weight: normal; color: #8e9aaf; }
+        .price span { font-size: 0.65rem; color: #8e9aaf; }
         .book-btn {
             background: #1e232c;
             border: none;
@@ -196,47 +257,50 @@
             padding: 0.7rem;
             border-radius: 40px;
             font-weight: 600;
-            color: #fff;
+            color: white;
             cursor: pointer;
             transition: 0.2s;
             margin-top: 1rem;
         }
         .book-btn:hover { background: #2d7aff; }
 
-        /* Partenaires - icônes élégantes */
+        /* partenaires */
         .partners {
-            background: #13161d;
+            background: #0f1119;
             border-top: 1px solid #2d3340;
             border-bottom: 1px solid #2d3340;
-            padding: 1.8rem 0;
-            margin: 2rem 0 0;
+            padding: 1.5rem 0;
+            margin-top: 2rem;
         }
         .partners h3 {
             text-align: center;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #8e9aaf;
             letter-spacing: 1px;
-            margin-bottom: 1.2rem;
+            margin-bottom: 1rem;
         }
         .scrolling-logos {
             display: flex;
-            gap: 3rem;
+            gap: 2.5rem;
             animation: scrollLogos 20s linear infinite;
             width: fit-content;
         }
         .scrolling-logos i {
-            font-size: 2rem;
+            font-size: 1.8rem;
             color: #5a6b8a;
             transition: 0.2s;
         }
-        .scrolling-logos i:hover { color: #2d7aff; transform: scale(1.1); }
-        .logo-track {
-            overflow: hidden;
-            white-space: nowrap;
-        }
+        .scrolling-logos i:hover { color: #2d7aff; }
+        .logo-track { overflow: hidden; }
         @keyframes scrollLogos {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
+        }
+        footer {
+            text-align: center;
+            padding: 1.2rem;
+            font-size: 0.7rem;
+            color: #6a7a90;
         }
 
         /* Modal */
@@ -280,9 +344,7 @@
             border: 1px solid #2d3340;
             border-radius: 16px;
             color: white;
-            outline: none;
         }
-        .form-group input:focus { border-color: #2d7aff; }
         .submit-booking {
             background: #2d7aff;
             width: 100%;
@@ -291,83 +353,86 @@
             font-weight: bold;
             border: none;
             color: white;
-            margin-top: 0.5rem;
             cursor: pointer;
         }
 
-        footer {
-            text-align: center;
-            padding: 1.5rem;
-            font-size: 0.7rem;
-            color: #6a7a90;
-        }
-
         @media (max-width: 780px) {
+            .hero-content h2 { font-size: 2rem; }
             .main-layout { flex-direction: column; }
             .sidebar { width: 100%; position: static; }
+            .btn-reserve { padding: 0.8rem 1.8rem; font-size: 1rem; }
         }
     </style>
 </head>
 <body>
 
-<header>
-    <div class="nav-container">
-        <div class="logo">
+<!-- ========== PAGE LANDING (ACCUEIL) ========== -->
+<div id="landingPage" class="landing">
+    <div class="landing-header">
+        <div class="landing-logo">
             <h1><span class="hy">HY</span><span class="car">CAR</span></h1>
             <small>by Haytam & Yassmin</small>
         </div>
     </div>
-</header>
-
-<div class="main-layout">
-    <aside class="sidebar">
-        <div class="search-box">
-            <h3><i class="fas fa-search"></i> Chercher</h3>
-            <input type="text" id="searchInput" placeholder="Range, Audi, BMW ...">
-        </div>
-        <div class="map-link">
-            <h3><i class="fas fa-map-marker-alt"></i> Agence</h3>
-            <a href="https://www.google.com/maps?q=maroc+casablanca+location+voiture" target="_blank">
-                <i class="fas fa-location-dot"></i> Google Maps
-            </a>
-        </div>
-    </aside>
-
-    <section class="cars-section">
-        <div class="section-header">
-            <h2>🚘 Nos véhicules</h2>
-            <span class="cars-count" id="carsCount">0 modèles</span>
-        </div>
-        <div class="cars-grid" id="carsGrid"></div>
-    </section>
-</div>
-
-<!-- Partenaires avec icônes Fontawesome (visibles 100%) -->
-<div class="partners">
-    <h3><i class="fas fa-handshake"></i> Nos partenaires constructeurs</h3>
-    <div class="logo-track">
-        <div class="scrolling-logos" id="logoSlider">
-            <i class="fab fa-windows"></i> <!-- Mercedes style -->
-            <i class="fas fa-car"></i>
-            <i class="fas fa-truck"></i>
-            <i class="fas fa-car-side"></i>
-            <i class="fas fa-gas-pump"></i>
-            <i class="fab fa-battle-net"></i>
-            <i class="fas fa-caravan"></i>
-            <!-- répétition -->
-            <i class="fab fa-windows"></i>
-            <i class="fas fa-car"></i>
-            <i class="fas fa-truck"></i>
-            <i class="fas fa-car-side"></i>
-        </div>
+    <div class="hero-content">
+        <h2>L'élégance <span>sur mesure</span></h2>
+        <p>Découvrez notre flotte de véhicules premium, réservation simple et livraison gratuite.</p>
+        <button id="discoverBtn" class="btn-reserve">
+            <i class="fas fa-calendar-check"></i> Réserver maintenant
+        </button>
     </div>
 </div>
 
-<footer>
-    <p>HY CAR © 2025 — Location premium | <i class="fab fa-whatsapp"></i> Réservation WhatsApp | <i class="fas fa-shield-alt"></i> Confiance & élégance</p>
-</footer>
+<!-- ========== PAGE DES VOITURES (masquée au départ) ========== -->
+<div id="carsPage" class="cars-page">
+    <div class="cars-header">
+        <div class="nav-container">
+            <div class="cars-logo">
+                <h1><span class="hy">HY</span><span class="car">CAR</span></h1>
+                <small>Location premium</small>
+            </div>
+        </div>
+    </div>
 
-<!-- Modal -->
+    <div class="main-layout">
+        <aside class="sidebar">
+            <div class="search-box">
+                <h3><i class="fas fa-search"></i> Chercher</h3>
+                <input type="text" id="searchInput" placeholder="Range, Audi, BMW ...">
+            </div>
+            <div class="map-link">
+                <h3><i class="fas fa-map-marker-alt"></i> Agence</h3>
+                <a href="https://www.google.com/maps?q=maroc+casablanca+location+voiture" target="_blank">
+                    <i class="fas fa-location-dot"></i> Google Maps
+                </a>
+            </div>
+        </aside>
+
+        <section class="cars-section">
+            <div class="section-header">
+                <h2>🚘 Nos véhicules</h2>
+                <span class="cars-count" id="carsCount">0 modèles</span>
+            </div>
+            <div class="cars-grid" id="carsGrid"></div>
+        </section>
+    </div>
+
+    <div class="partners">
+        <h3><i class="fas fa-handshake"></i> Nos partenaires constructeurs</h3>
+        <div class="logo-track">
+            <div class="scrolling-logos" id="logoSlider">
+                <i class="fas fa-car"></i> <i class="fas fa-truck"></i> <i class="fas fa-car-side"></i>
+                <i class="fas fa-gas-pump"></i> <i class="fas fa-caravan"></i> <i class="fas fa-shield-alt"></i>
+                <i class="fas fa-car"></i> <i class="fas fa-truck"></i> <i class="fas fa-car-side"></i>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>HY CAR © 2025 — Location de confiance | <i class="fab fa-whatsapp"></i> Réservation WhatsApp</p>
+    </footer>
+</div>
+
+<!-- Modal de réservation -->
 <div id="bookingModal" class="modal">
     <div class="modal-content">
         <span class="close-modal">&times;</span>
@@ -385,7 +450,7 @@
 </div>
 
 <script>
-    // Liste des voitures (les mêmes que vous avez demandées)
+    // Liste des voitures (images réelles)
     const cars = [
         { id: 1, name: "RANGE ROVER SPORT", type: "Premium", pricePerDay: 2200, image: "https://media.production.jlrms.com/styles/thumbnail_big/s3/2020-07-14/image/3a524bd8-34d7-40f0-a547-b4f8fc4b8bdb/RRS_21MY_HSE_DYN_BLACK_150720_01.jpg?VersionId=UhbVhFfH7IKguwjb6EdnV7VUTXRS8P8W&h=b88da0f1&itok=xyCkVAC-", fuel: "Diesel", seats: 5 },
         { id: 2, name: "AUDI Q8", type: "Premium", pricePerDay: 1900, image: "https://m.atcdn.co.uk/vms/media/0d7c8f9e7fb1449d87293de87aa17d57.jpg", fuel: "Essence", seats: 5 },
@@ -394,6 +459,8 @@
         { id: 5, name: "Mercedes Vito", type: "Utilitaire", pricePerDay: 850, image: "https://images.autouncle.com/da/car_images/eb7c7b68-a877-4ee6-8bff-f33ba145a125_2019-mercedes-vito-163.jpg", fuel: "Diesel", seats: 8 },
         { id: 6, name: "BMW SERIE 5", type: "Premium", pricePerDay: 1300, image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/BMW_G60_520d_IAA_2023_1X7A0757.jpg/960px-BMW_G60_520d_IAA_2023_1X7A0757.jpg", fuel: "Essence", seats: 5 }
     ];
+
+    let bookings = []; // stockage simple
 
     function sendWhatsApp(booking) {
         let phone = booking.customerPhone.replace(/\D/g, '');
@@ -450,6 +517,13 @@
 
     function closeModal() { document.getElementById("bookingModal").style.display = "none"; }
 
+    // Événements
+    document.getElementById("discoverBtn").addEventListener("click", () => {
+        document.getElementById("landingPage").style.display = "none";
+        document.getElementById("carsPage").style.display = "block";
+        renderCars(""); // afficher les voitures
+    });
+
     document.getElementById("bookingForm").addEventListener("submit", (e) => {
         e.preventDefault();
         const carId = parseInt(document.getElementById("carId").value);
@@ -458,7 +532,7 @@
         const customerPhone = document.getElementById("customerPhone").value.trim();
         const startDate = document.getElementById("startDate").value;
         const endDate = document.getElementById("endDate").value;
-        if(!customerName || !customerPhone || !startDate || !endDate) return alert("Remplissez tout");
+        if(!customerName || !customerPhone || !startDate || !endDate) return alert("Veuillez remplir tous les champs");
         const car = cars.find(c => c.id === carId);
         if(!car) return;
         const days = Math.ceil((new Date(endDate) - new Date(startDate)) / (1000*3600*24));
@@ -466,7 +540,7 @@
         const total = days * car.pricePerDay;
         const bookingData = { carName, customerName, customerPhone, startDate, endDate, totalDays: days, totalPrice: total };
         sendWhatsApp(bookingData);
-        alert(`✅ Envoyé sur WhatsApp ! Total: ${total} DH`);
+        alert(`✅ Demande envoyée sur WhatsApp ! Total: ${total} DH`);
         closeModal();
     });
 
@@ -478,11 +552,8 @@
     document.getElementById("startDate").min = tomorrow.toISOString().split('T')[0];
     document.getElementById("endDate").min = tomorrow.toISOString().split('T')[0];
 
-    // défilement icônes partenaires
-    const track = document.getElementById("logoSlider");
-    if(track) track.innerHTML = track.innerHTML + track.innerHTML;
-
-    renderCars("");
+    const slider = document.getElementById("logoSlider");
+    if(slider) slider.innerHTML = slider.innerHTML + slider.innerHTML;
 </script>
 </body>
 </html>
