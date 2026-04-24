@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HY CAR | Location de Voitures par Haytam & Yassmin</title>
+    <title>HY CAR | Location de Voitures</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -15,23 +15,22 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: #f5f5f0;
-            color: #1a1a1a;
+            background: #0b0d15;
+            color: #eef2ff;
         }
 
-        /* Header minimal */
+        /* Header Élégant */
         header {
-            background: #ffffff;
-            padding: 0.8rem 2rem;
+            background: #07090f;
+            border-bottom: 1px solid #1e2a3a;
+            padding: 0.9rem 2rem;
             position: sticky;
             top: 0;
             z-index: 100;
-            border-bottom: 1px solid #eee;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
         }
 
         .nav-container {
-            max-width: 1300px;
+            max-width: 1400px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -39,25 +38,25 @@
         }
 
         .logo h1 {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 800;
             letter-spacing: -1px;
         }
 
         .logo .hy {
-            color: #222;
+            color: #ffffff;
         }
 
         .logo .car {
-            color: #d4a373;
+            color: #2d7aff;
         }
 
         .logo small {
-            display: block;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
+            color: #7e8a98;
             font-weight: 400;
-            color: #888;
-            letter-spacing: 0;
+            display: block;
+            line-height: 1.2;
         }
 
         .nav-links {
@@ -68,184 +67,203 @@
 
         .nav-links a {
             text-decoration: none;
-            color: #333;
+            color: #ccd6f0;
             font-weight: 500;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             transition: 0.2s;
         }
 
         .nav-links a:hover {
-            color: #d4a373;
+            color: #2d7aff;
         }
 
         .menu-toggle {
             display: none;
             font-size: 1.5rem;
             cursor: pointer;
-        }
-
-        /* Hero simple mais chic */
-        .hero {
-            background: linear-gradient(135deg, #fefcf8 0%, #faf7f0 100%);
-            padding: 4rem 2rem;
-            text-align: center;
-        }
-
-        .hero h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #222;
-        }
-
-        .hero h2 span {
-            color: #d4a373;
-        }
-
-        .hero p {
-            color: #666;
-            margin-top: 0.8rem;
-            max-width: 550px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .search-section {
-            max-width: 450px;
-            margin: 2rem auto 0;
-            display: flex;
-            gap: 0.5rem;
-            background: white;
-            border-radius: 50px;
-            padding: 0.3rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            border: 1px solid #eee;
-        }
-
-        .search-section input {
-            flex: 1;
-            padding: 0.8rem 1.2rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            outline: none;
-            background: transparent;
-        }
-
-        .search-section button {
-            background: #d4a373;
-            border: none;
-            padding: 0 1.8rem;
-            border-radius: 50px;
             color: white;
+        }
+
+        /* Layout principal : Sidebar (filtres + recherche) + Grille */
+        .main-layout {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+            display: flex;
+            gap: 2rem;
+        }
+
+        /* Sidebar Élégante */
+        .sidebar {
+            width: 280px;
+            flex-shrink: 0;
+            background: #0f121c;
+            border-radius: 24px;
+            padding: 1.5rem;
+            height: fit-content;
+            position: sticky;
+            top: 90px;
+            border: 1px solid #1f2a3e;
+        }
+
+        .sidebar h3 {
+            font-size: 1rem;
             font-weight: 600;
-            cursor: pointer;
+            margin-bottom: 1rem;
+            color: #2d7aff;
+            letter-spacing: -0.2px;
+        }
+
+        .search-box {
+            margin-bottom: 2rem;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: #080b12;
+            border: 1px solid #253040;
+            border-radius: 40px;
+            color: white;
+            font-size: 0.85rem;
+            outline: none;
             transition: 0.2s;
         }
 
-        .search-section button:hover {
-            background: #b8834f;
+        .search-box input:focus {
+            border-color: #2d7aff;
         }
 
-        /* Container élégant */
-        .container {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
-        }
-
-        .section-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
-            letter-spacing: -0.5px;
-        }
-
-        .section-title:before {
-            content: '—';
-            margin-right: 0.5rem;
-            color: #d4a373;
-        }
-
-        /* Filtres épurés */
-        .filters {
-            display: flex;
-            gap: 0.8rem;
-            flex-wrap: wrap;
-            margin-bottom: 2rem;
+        .filter-group {
+            margin-bottom: 1.8rem;
         }
 
         .filter-btn {
+            display: block;
+            width: 100%;
+            text-align: left;
             background: transparent;
-            border: 1px solid #ddd;
-            padding: 0.5rem 1.5rem;
-            border-radius: 40px;
-            cursor: pointer;
+            border: none;
+            padding: 0.6rem 0;
+            color: #b9c3d4;
             font-weight: 500;
             font-size: 0.85rem;
+            cursor: pointer;
             transition: 0.2s;
-            color: #444;
+            border-radius: 8px;
+        }
+
+        .filter-btn i {
+            width: 24px;
+            margin-right: 8px;
+            color: #5c6f87;
         }
 
         .filter-btn.active, .filter-btn:hover {
-            background: #d4a373;
-            border-color: #d4a373;
             color: white;
+            background: #1a2538;
+            padding-left: 8px;
         }
 
-        /* Grille des voitures - propre */
+        .filter-btn.active i, .filter-btn:hover i {
+            color: #2d7aff;
+        }
+
+        /* Map link élégant */
+        .map-link {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #1f2a3e;
+        }
+
+        .map-link a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #2d7aff;
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: 0.2s;
+        }
+
+        .map-link a:hover {
+            gap: 14px;
+            color: #5c9eff;
+        }
+
+        /* Grille des voitures */
+        .cars-section {
+            flex: 1;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-header h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .cars-count {
+            font-size: 0.8rem;
+            color: #7e8a98;
+        }
+
         .cars-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.8rem;
+            gap: 1.5rem;
         }
 
+        /* Carte voiture -- noire/bleue élégante */
         .car-card {
-            background: white;
+            background: #0f121c;
             border-radius: 20px;
             overflow: hidden;
             transition: all 0.25s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
-            border: 1px solid #f0f0f0;
+            border: 1px solid #1f2a3e;
         }
 
         .car-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 12px 28px rgba(0,0,0,0.08);
-            border-color: #e6d5c3;
+            border-color: #2d7aff;
+            box-shadow: 0 10px 25px -10px rgba(45, 122, 255, 0.2);
         }
 
-        /* Zone image - TOI TU METTRAS TES PHOTOS ICI */
         .car-img {
-            height: 200px;
-            background-color: #f0ede8;
+            height: 190px;
+            background-color: #0a0d14;
             background-size: cover;
             background-position: center;
             position: relative;
         }
 
-        /* Badge temporaire si pas d'image */
         .car-img-placeholder {
+            height: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 100%;
-            background: #e9e5df;
-            color: #aaa;
-            font-size: 0.9rem;
+            background: #0d111a;
+            color: #2d3a4e;
         }
 
         .car-badge {
             position: absolute;
             top: 12px;
             right: 12px;
-            background: rgba(0,0,0,0.6);
-            backdrop-filter: blur(4px);
-            color: white;
+            background: rgba(0,0,0,0.65);
+            backdrop-filter: blur(6px);
             padding: 0.2rem 0.8rem;
             border-radius: 30px;
             font-size: 0.7rem;
             font-weight: 600;
-            letter-spacing: 0.3px;
+            border: 0.5px solid rgba(45,122,255,0.5);
         }
 
         .car-info {
@@ -255,100 +273,63 @@
         .car-title {
             font-size: 1.2rem;
             font-weight: 700;
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.2rem;
         }
 
         .car-type {
-            font-size: 0.75rem;
-            color: #d4a373;
-            font-weight: 600;
+            font-size: 0.7rem;
+            color: #2d7aff;
             text-transform: uppercase;
-            margin-bottom: 0.5rem;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
         }
 
         .car-details {
             display: flex;
             gap: 1rem;
             margin: 0.8rem 0;
-            color: #777;
+            color: #9aa9bb;
             font-size: 0.75rem;
         }
 
         .car-details i {
             margin-right: 0.2rem;
-            color: #d4a373;
+            color: #2d7aff;
         }
 
         .price {
             font-size: 1.3rem;
             font-weight: 800;
-            color: #1e2a3e;
+            color: white;
         }
 
         .price span {
             font-size: 0.7rem;
             font-weight: normal;
-            color: #999;
+            color: #7e8a98;
         }
 
         .book-btn {
             display: block;
-            background: #1e2a3e;
-            color: white;
-            text-align: center;
-            padding: 0.7rem;
-            border-radius: 40px;
-            text-decoration: none;
-            margin-top: 1rem;
-            transition: 0.2s;
-            font-weight: 600;
-            font-size: 0.85rem;
+            background: #1e2a3a;
             border: none;
             width: 100%;
+            padding: 0.7rem;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: white;
             cursor: pointer;
+            transition: 0.2s;
+            margin-top: 1rem;
         }
 
         .book-btn:hover {
-            background: #d4a373;
-            color: #1a1a1a;
-        }
-
-        /* Dashboard */
-        .dashboard {
-            background: white;
-            border-radius: 20px;
-            padding: 1.5rem;
-            border: 1px solid #eee;
-        }
-
-        .booking-item {
-            background: #fafaf8;
-            margin-bottom: 1rem;
-            padding: 1rem;
-            border-radius: 14px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            border-left: 3px solid #d4a373;
-        }
-
-        .delete-booking {
-            background: #e0e0e0;
-            border: none;
-            padding: 0.4rem 1rem;
-            border-radius: 30px;
-            cursor: pointer;
-            font-size: 0.75rem;
-            transition: 0.2s;
-        }
-
-        .delete-booking:hover {
-            background: #d4a373;
+            background: #2d7aff;
             color: white;
         }
 
-        /* Modal épuré */
+        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -356,29 +337,27 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.5);
-            backdrop-filter: blur(3px);
+            background: rgba(0,0,0,0.75);
+            backdrop-filter: blur(8px);
             justify-content: center;
             align-items: center;
             z-index: 1000;
         }
 
         .modal-content {
-            background: white;
+            background: #0f121c;
+            border: 1px solid #2a3649;
             max-width: 450px;
             width: 90%;
-            border-radius: 24px;
+            border-radius: 28px;
             padding: 1.8rem;
-            position: relative;
         }
 
         .close-modal {
-            position: absolute;
-            top: 1rem;
-            right: 1.2rem;
+            float: right;
             font-size: 1.3rem;
             cursor: pointer;
-            color: #999;
+            color: #8f9bb3;
         }
 
         .form-group {
@@ -387,56 +366,76 @@
 
         .form-group label {
             display: block;
-            margin-bottom: 0.3rem;
-            font-weight: 600;
-            font-size: 0.85rem;
+            margin-bottom: 0.4rem;
+            font-weight: 500;
+            font-size: 0.8rem;
+            color: #b9c7da;
         }
 
         .form-group input {
             width: 100%;
             padding: 0.7rem;
-            border: 1px solid #ddd;
-            border-radius: 12px;
+            background: #080b12;
+            border: 1px solid #253040;
+            border-radius: 16px;
+            color: white;
             outline: none;
-            font-size: 0.9rem;
         }
 
         .submit-booking {
-            background: #d4a373;
+            background: #2d7aff;
             border: none;
             width: 100%;
             padding: 0.8rem;
             border-radius: 40px;
             font-weight: 700;
+            margin-top: 0.8rem;
             cursor: pointer;
-            margin-top: 0.5rem;
+            color: white;
         }
 
         footer {
             text-align: center;
-            padding: 2rem;
-            color: #aaa;
-            font-size: 0.8rem;
-            border-top: 1px solid #eee;
+            padding: 1.8rem;
+            color: #5a6a7e;
+            font-size: 0.75rem;
+            border-top: 1px solid #121824;
+            margin-top: 2rem;
         }
 
-        @media (max-width: 700px) {
+        @media (max-width: 850px) {
+            .main-layout {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                position: static;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1rem;
+                align-items: center;
+            }
+            .search-box, .filter-group, .map-link {
+                flex: 1;
+                margin-bottom: 0;
+            }
+            .filter-group .filter-btn {
+                display: inline-block;
+                width: auto;
+                margin-right: 0.8rem;
+            }
+            .menu-toggle {
+                display: block;
+            }
             .nav-links {
                 display: none;
                 width: 100%;
                 flex-direction: column;
                 text-align: center;
                 padding: 1rem 0;
-                gap: 1rem;
             }
             .nav-links.show {
                 display: flex;
-            }
-            .menu-toggle {
-                display: block;
-            }
-            .hero h2 {
-                font-size: 1.8rem;
             }
         }
     </style>
@@ -452,63 +451,51 @@
         <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
         <ul class="nav-links" id="navLinks">
             <li><a href="#" data-nav="home">Accueil</a></li>
-            <li><a href="#" data-nav="dashboard">Mes réservations</a></li>
-            <li><a href="#" data-nav="about">Notre histoire</a></li>
         </ul>
     </div>
 </header>
 
-<main id="mainContent">
-    <div id="homePage">
-        <div class="hero">
-            <h2>Louez la voiture <span>parfaite</span></h2>
-            <p>HY CAR, c’est l’alliance de l’élégance et de la confiance. Haytam & Yassmin vous accompagnent.</p>
-            <div class="search-section">
-                <input type="text" id="searchInput" placeholder="Rechercher une voiture...">
-                <button id="searchBtn"><i class="fas fa-search"></i></button>
-            </div>
+<div class="main-layout">
+    <!-- Sidebar avec recherche & filtres + map -->
+    <aside class="sidebar">
+        <div class="search-box">
+            <h3><i class="fas fa-search"></i> Recherche</h3>
+            <input type="text" id="searchInput" placeholder="Nom de voiture ...">
         </div>
-        <div class="container">
-            <div class="section-title">Nos véhicules</div>
-            <div class="filters" id="filters">
-                <button class="filter-btn active" data-filter="all">Tous</button>
-                <button class="filter-btn" data-filter="Economique">Éco</button>
-                <button class="filter-btn" data-filter="SUV">SUV</button>
-                <button class="filter-btn" data-filter="Luxe">Luxe</button>
-            </div>
-            <div class="cars-grid" id="carsGrid"></div>
+        <div class="filter-group">
+            <h3><i class="fas fa-filter"></i> Catégories</h3>
+            <button class="filter-btn active" data-filter="all"><i class="fas fa-car"></i> Toutes</button>
+            <button class="filter-btn" data-filter="Economique"><i class="fas fa-leaf"></i> Économique</button>
+            <button class="filter-btn" data-filter="SUV"><i class="fas fa-truck"></i> SUV</button>
+            <button class="filter-btn" data-filter="Luxe"><i class="fas fa-gem"></i> Luxe</button>
         </div>
-    </div>
+        <div class="map-link">
+            <h3><i class="fas fa-map-pin"></i> Notre agence</h3>
+            <a href="https://www.google.com/maps?q=maroc+casablanca+location+voiture" target="_blank">
+                <i class="fas fa-map-marker-alt"></i> Voir sur Google Maps
+                <i class="fas fa-external-link-alt" style="font-size: 0.7rem;"></i>
+            </a>
+        </div>
+    </aside>
 
-    <div id="dashboardPage" style="display: none;">
-        <div class="container">
-            <div class="section-title">📋 Mes réservations</div>
-            <div class="dashboard" id="bookingsList">
-                <p style="text-align:center; color:#aaa;">Aucune réservation</p>
-            </div>
+    <section class="cars-section">
+        <div class="section-header">
+            <h2>🚘 Nos véhicules</h2>
+            <span class="cars-count" id="carsCount">0 modèles</span>
         </div>
-    </div>
-
-    <div id="aboutPage" style="display: none;">
-        <div class="container">
-            <div class="section-title">Notre histoire</div>
-            <div style="background: white; padding: 2rem; border-radius: 24px;">
-                <p style="line-height:1.6"><strong>HY CAR</strong> est né de la passion de <strong>Haytam</strong> et <strong>Yassmin</strong> pour l’automobile et le service client d’exception. Nous proposons des véhicules sélectionnés avec soin, entretenus, pour que chaque trajet soit un plaisir. ✨</p>
-                <br>
-                <p>📍 Maroc – Livraison gratuite<br>📞 Support WhatsApp 24/7<br>🔒 Réservation simple et sans surprise</p>
-            </div>
-        </div>
-    </div>
-</main>
+        <div class="cars-grid" id="carsGrid"></div>
+    </section>
+</div>
 
 <footer>
-    <p>HY CAR © 2025 — by Haytam & Yassmin | Location de confiance</p>
+    <p>HY CAR © 2025 — Location de confiance | Haytam & Yassmin</p>
 </footer>
 
+<!-- Modal Réservation -->
 <div id="bookingModal" class="modal">
     <div class="modal-content">
         <span class="close-modal">&times;</span>
-        <h3 style="font-size: 1.3rem; margin-bottom: 1.2rem;">📝 Réservation</h3>
+        <h3 style="margin-bottom: 1rem;">📄 Réservation rapide</h3>
         <form id="bookingForm">
             <input type="hidden" id="carId">
             <div class="form-group">
@@ -517,11 +504,11 @@
             </div>
             <div class="form-group">
                 <label>Nom complet</label>
-                <input type="text" id="customerName" required placeholder="Votre nom">
+                <input type="text" id="customerName" required placeholder="Haytam / Yassmin">
             </div>
             <div class="form-group">
                 <label>WhatsApp</label>
-                <input type="tel" id="customerPhone" required placeholder="+212 6XX XXX XXX">
+                <input type="tel" id="customerPhone" required placeholder="+212 6XXXXXXXX">
             </div>
             <div class="form-group">
                 <label>Date de début</label>
@@ -537,43 +524,44 @@
 </div>
 
 <script>
-    // ----- TES VOITURES : tu vas ajouter tes images ici -----
-    // Dans l'objet "image", mets le chemin ou URL de tes photos.
+    // === LES VOITURES ===
+    // TU REMPLACES LES IMAGES PAR TES PHOTOS (met le chemin ou URL)
     const cars = [
-        { id: 1, name: "Mercedes Classe C", type: "Luxe", pricePerDay: 950, image: "", badge: "Luxe", fuel: "Essence", seats: 5 },
-        { id: 2, name: "Dacia Sandero", type: "Economique", pricePerDay: 250, image: "", badge: "Éco", fuel: "Essence", seats: 5 },
-        { id: 3, name: "BMW X5", type: "SUV", pricePerDay: 1400, image: "", badge: "SUV", fuel: "Diesel", seats: 5 },
-        { id: 4, name: "Renault Clio", type: "Economique", pricePerDay: 270, image: "", badge: "Éco", fuel: "Essence", seats: 5 },
-        { id: 5, name: "Audi A6", type: "Luxe", pricePerDay: 1200, image: "", badge: "Luxe", fuel: "Essence", seats: 5 },
-        { id: 6, name: "Hyundai Tucson", type: "SUV", pricePerDay: 650, image: "", badge: "SUV", fuel: "Diesel", seats: 5 }
+        { id: 1, name: "Mercedes Classe C", type: "Luxe", pricePerDay: 950, image: "", fuel: "Essence", seats: 5, badge: "Luxe" },
+        { id: 2, name: "Dacia Sandero", type: "Economique", pricePerDay: 250, image: "", fuel: "Essence", seats: 5, badge: "Éco" },
+        { id: 3, name: "BMW X5", type: "SUV", pricePerDay: 1400, image: "", fuel: "Diesel", seats: 5, badge: "SUV" },
+        { id: 4, name: "Renault Clio", type: "Economique", pricePerDay: 270, image: "", fuel: "Essence", seats: 5, badge: "Éco" },
+        { id: 5, name: "Audi A6", type: "Luxe", pricePerDay: 1200, image: "", fuel: "Essence", seats: 5, badge: "Luxe" },
+        { id: 6, name: "Hyundai Tucson", type: "SUV", pricePerDay: 680, image: "", fuel: "Diesel", seats: 5, badge: "SUV" }
     ];
 
-    let bookings = JSON.parse(localStorage.getItem('hycar_bookings')) || [];
-
-    function saveBookings() { localStorage.setItem('hycar_bookings', JSON.stringify(bookings)); }
-
+    // Pas de réservations affichées, mais on garde le système simple pour l'usage
     function sendWhatsApp(booking) {
         let phone = booking.customerPhone.replace(/\D/g, '');
         if (!phone.startsWith('212')) phone = '212' + phone.replace(/^0+/, '');
-        const msg = `Bonjour HY CAR! 👋\nJe réserve : ${booking.carName}\nDu ${booking.startDate} au ${booking.endDate} (${booking.totalDays}j)\nTotal: ${booking.totalPrice} DH\nNom: ${booking.customerName}\nTel: ${booking.customerPhone}\nMerci de confirmer.`;
+        const msg = `Bonjour HY CAR! 👋\nNouvelle réservation :\n🚗 ${booking.carName}\n📅 Du ${booking.startDate} au ${booking.endDate} (${booking.totalDays}j)\n💰 Total: ${booking.totalPrice} DH\n👤 ${booking.customerName}\n📞 ${booking.customerPhone}\nMerci de confirmer.`;
         window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
     }
 
+    // Rendu des voitures
     function renderCars(filter = "all", search = "") {
         let filtered = cars.filter(c => filter === "all" || c.type === filter);
         if (search.trim()) filtered = filtered.filter(c => c.name.toLowerCase().includes(search.toLowerCase()));
         const grid = document.getElementById("carsGrid");
+        const countSpan = document.getElementById("carsCount");
         if (!grid) return;
-        if(filtered.length === 0) { grid.innerHTML = "<p style='text-align:center;'>Aucune voiture</p>"; return; }
-        
+        countSpan.innerText = filtered.length + " modèle" + (filtered.length > 1 ? "s" : "");
+        if (filtered.length === 0) {
+            grid.innerHTML = "<p style='grid-column:1/-1; text-align:center; padding:2rem;'>Aucune voiture trouvée</p>";
+            return;
+        }
         grid.innerHTML = filtered.map(car => {
-            // Si pas d'image, affiche un placeholder élégant
-            const imgStyle = car.image ? `background-image: url('${car.image}');` : '';
-            const imgContent = car.image ? '' : '<div class="car-img-placeholder"><i class="fas fa-car" style="font-size:2rem; opacity:0.4;"></i></div>';
+            const imgStyle = car.image ? `background-image: url('${car.image}'); background-size:cover; background-position:center;` : '';
+            const placeholderHtml = !car.image ? `<div class="car-img-placeholder"><i class="fas fa-car" style="font-size:2rem; opacity:0.3;"></i><br><span style="font-size:0.7rem;">ajoutez votre photo</span></div>` : '';
             return `
             <div class="car-card">
-                <div class="car-img" style="${imgStyle} background-size:cover; background-position:center;">
-                    ${!car.image ? imgContent : ''}
+                <div class="car-img" style="${imgStyle}">
+                    ${placeholderHtml}
                     <div class="car-badge">${car.badge}</div>
                 </div>
                 <div class="car-info">
@@ -585,21 +573,28 @@
                         <span><i class="fas fa-cog"></i> Auto</span>
                     </div>
                     <div class="price">${car.pricePerDay} <span>DH/jour</span></div>
-                    <button class="book-btn" data-id="${car.id}" data-name="${car.name}" data-price="${car.pricePerDay}">Réserver</button>
+                    <button class="book-btn" data-id="${car.id}" data-name="${car.name}" data-price="${car.pricePerDay}">📅 Réserver</button>
                 </div>
             </div>`;
         }).join('');
 
         document.querySelectorAll('.book-btn').forEach(btn => {
-            btn.addEventListener('click', () => openModal(parseInt(btn.dataset.id), btn.dataset.name, btn.dataset.price));
+            btn.addEventListener('click', (e) => {
+                const id = parseInt(btn.dataset.id);
+                const name = btn.dataset.name;
+                const price = parseInt(btn.dataset.price);
+                openModal(id, name, price);
+            });
         });
     }
 
-    function openModal(id, name, price) {
-        document.getElementById("modalCarName").value = name;
-        document.getElementById("carId").value = id;
-        const tomorrow = new Date(); tomorrow.setDate(tomorrow.getDate()+1);
-        const later = new Date(); later.setDate(later.getDate()+3);
+    function openModal(carId, carName, pricePerDay) {
+        document.getElementById("modalCarName").value = carName;
+        document.getElementById("carId").value = carId;
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        const later = new Date();
+        later.setDate(later.getDate() + 3);
         document.getElementById("startDate").value = tomorrow.toISOString().split('T')[0];
         document.getElementById("endDate").value = later.toISOString().split('T')[0];
         document.getElementById("customerName").value = "";
@@ -607,7 +602,9 @@
         document.getElementById("bookingModal").style.display = "flex";
     }
 
-    function closeModal() { document.getElementById("bookingModal").style.display = "none"; }
+    function closeModal() {
+        document.getElementById("bookingModal").style.display = "none";
+    }
 
     document.getElementById("bookingForm").addEventListener("submit", (e) => {
         e.preventDefault();
@@ -617,75 +614,60 @@
         const customerPhone = document.getElementById("customerPhone").value.trim();
         const startDate = document.getElementById("startDate").value;
         const endDate = document.getElementById("endDate").value;
-        if(!customerName || !customerPhone || !startDate || !endDate) return alert("Remplissez tout");
-        const car = cars.find(c=>c.id === carId);
-        if(!car) return;
-        const days = Math.ceil((new Date(endDate)-new Date(startDate))/(1000*3600*24));
-        if(days<=0) return alert("Date incorrecte");
+        if (!customerName || !customerPhone || !startDate || !endDate) {
+            alert("Veuillez remplir tous les champs");
+            return;
+        }
+        const car = cars.find(c => c.id === carId);
+        if (!car) return;
+        const days = Math.ceil((new Date(endDate) - new Date(startDate)) / (1000 * 3600 * 24));
+        if (days <= 0) {
+            alert("Date invalide");
+            return;
+        }
         const total = days * car.pricePerDay;
-        const newBooking = { id:Date.now(), carId, carName, customerName, customerPhone, startDate, endDate, totalDays:days, totalPrice:total };
-        bookings.push(newBooking);
-        saveBookings();
-        sendWhatsApp(newBooking);
-        alert(`✅ Réservé ! WhatsApp envoyé. Total: ${total} DH`);
+        const bookingData = {
+            carName, customerName, customerPhone, startDate, endDate, totalDays: days, totalPrice: total
+        };
+        sendWhatsApp(bookingData);
+        alert(`✅ Demande envoyée sur WhatsApp ! Total: ${total} DH`);
         closeModal();
-        if(document.getElementById("dashboardPage").style.display === "block") renderBookings();
     });
 
-    function renderBookings() {
-        const container = document.getElementById("bookingsList");
-        if(!container) return;
-        if(bookings.length===0) { container.innerHTML = "<p style='text-align:center;'>Aucune réservation</p>"; return; }
-        container.innerHTML = bookings.map(b => `
-            <div class="booking-item">
-                <div><strong>${b.carName}</strong><br>${b.customerName} | ${b.customerPhone}<br>Du ${b.startDate} au ${b.endDate} (${b.totalDays}j)<br>💰 ${b.totalPrice} DH</div>
-                <button class="delete-booking" data-id="${b.id}">Annuler</button>
-            </div>
-        `).join('');
-        document.querySelectorAll('.delete-booking').forEach(btn => {
-            btn.addEventListener('click',()=>{
-                if(confirm("Annuler ?")){
-                    bookings = bookings.filter(b=>b.id !== parseInt(btn.dataset.id));
-                    saveBookings();
-                    renderBookings();
-                }
-            });
-        });
-    }
+    // Filtres, recherche
+    let currentFilter = "all";
+    let currentSearch = "";
 
-    function showPage(page) {
-        document.getElementById("homePage").style.display = "none";
-        document.getElementById("dashboardPage").style.display = "none";
-        document.getElementById("aboutPage").style.display = "none";
-        if(page==="home") document.getElementById("homePage").style.display = "block";
-        else if(page==="dashboard") { document.getElementById("dashboardPage").style.display = "block"; renderBookings(); }
-        else if(page==="about") document.getElementById("aboutPage").style.display = "block";
-    }
-
-    document.querySelectorAll("[data-nav]").forEach(link=>{
-        link.addEventListener("click",(e)=>{ e.preventDefault(); showPage(link.dataset.nav); document.getElementById("navLinks").classList.remove("show"); });
-    });
-    document.getElementById("menuToggle").addEventListener("click",()=>{ document.getElementById("navLinks").classList.toggle("show"); });
-
-    let currentFilter="all", currentSearch="";
-    function refresh(){ renderCars(currentFilter, currentSearch); }
-    document.querySelectorAll(".filter-btn").forEach(btn=>{
-        btn.addEventListener("click",()=>{
-            document.querySelectorAll(".filter-btn").forEach(b=>b.classList.remove("active"));
+    document.querySelectorAll(".filter-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+            document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
             btn.classList.add("active");
             currentFilter = btn.dataset.filter;
-            refresh();
+            renderCars(currentFilter, currentSearch);
         });
     });
-    document.getElementById("searchBtn").addEventListener("click",()=>{ currentSearch = document.getElementById("searchInput").value; refresh(); });
-    document.getElementById("searchInput").addEventListener("keyup",(e)=>{ if(e.key==="Enter"){ currentSearch = e.target.value; refresh(); } });
-    document.querySelector(".close-modal").addEventListener("click",closeModal);
-    window.onclick = (e)=>{ if(e.target === document.getElementById("bookingModal")) closeModal(); };
-    
-    const tomorrow = new Date(); tomorrow.setDate(tomorrow.getDate()+1);
-    document.getElementById("startDate").min = tomorrow.toISOString().split('T')[0];
-    document.getElementById("endDate").min = tomorrow.toISOString().split('T')[0];
-    refresh();
+
+    document.getElementById("searchInput").addEventListener("input", (e) => {
+        currentSearch = e.target.value;
+        renderCars(currentFilter, currentSearch);
+    });
+
+    // modal close
+    document.querySelector(".close-modal").addEventListener("click", closeModal);
+    window.onclick = (e) => { if (e.target === document.getElementById("bookingModal")) closeModal(); };
+
+    // dates min
+    const today = new Date();
+    today.setDate(today.getDate() + 1);
+    document.getElementById("startDate").min = today.toISOString().split('T')[0];
+    document.getElementById("endDate").min = today.toISOString().split('T')[0];
+
+    // navigation simple (pas d'historique ni de réservations affichées)
+    document.getElementById("menuToggle").addEventListener("click", () => {
+        document.getElementById("navLinks").classList.toggle("show");
+    });
+
+    renderCars("all", "");
 </script>
 </body>
 </html>
