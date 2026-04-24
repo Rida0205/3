@@ -26,7 +26,7 @@
         .landing {
             position: relative;
             min-height: 100vh;
-            background: linear-gradient(135deg, rgba(0,0,0,0.75), rgba(0,0,0,0.55)), url('https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=1600&h=900&fit=crop');
+            background: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=1600&h=900&fit=crop');
             background-size: cover;
             background-position: center 30%;
             display: flex;
@@ -37,27 +37,48 @@
             padding: 2rem;
         }
 
-        /* header sur landing simple */
+        /* header sur landing - LOGO TRÈS GRAND */
         .landing-header {
             position: absolute;
             top: 2rem;
-            left: 2rem;
+            left: 0;
+            right: 0;
+            text-align: center;
         }
         .landing-logo h1 {
-            font-size: 2rem;
-            font-weight: 800;
-            letter-spacing: -1px;
+            font-size: 5rem;
+            font-weight: 900;
+            letter-spacing: -2px;
+            background: linear-gradient(135deg, #ffffff 30%, #2d7aff 80%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 10px rgba(45,122,255,0.3);
         }
-        .landing-logo .hy { color: #fff; }
-        .landing-logo .car { color: #2d7aff; }
+        .landing-logo .hy {
+            background: linear-gradient(135deg, #fff, #e0e0e0);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .landing-logo .car {
+            background: linear-gradient(135deg, #2d7aff, #5c9eff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
         .landing-logo small {
             display: block;
-            font-size: 0.65rem;
-            color: #ccc;
+            font-size: 0.9rem;
+            color: #ccd6f0;
+            letter-spacing: 1px;
+            font-weight: 500;
+            margin-top: 0.5rem;
         }
 
         .hero-content {
             max-width: 700px;
+            margin-top: 3rem;
         }
         .hero-content h2 {
             font-size: 3.2rem;
@@ -95,14 +116,13 @@
             gap: 15px;
         }
 
-        /* ========== PAGE DES VOITURES (initialement cachée) ========== */
+        /* ========== PAGE DES VOITURES ========== */
         .cars-page {
             display: none;
             background: #0f121c;
             min-height: 100vh;
         }
 
-        /* header classique pour la page voitures */
         .cars-header {
             background: #0a0c12cc;
             backdrop-filter: blur(12px);
@@ -120,14 +140,14 @@
             align-items: center;
         }
         .cars-logo h1 {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 800;
+            letter-spacing: -1px;
         }
         .cars-logo .hy { color: #fff; }
         .cars-logo .car { color: #2d7aff; }
         .cars-logo small { font-size: 0.6rem; color: #8a98aa; }
 
-        /* layout voitures */
         .main-layout {
             max-width: 1400px;
             margin: 2rem auto;
@@ -264,7 +284,6 @@
         }
         .book-btn:hover { background: #2d7aff; }
 
-        /* partenaires */
         .partners {
             background: #0f1119;
             border-top: 1px solid #2d3340;
@@ -303,7 +322,6 @@
             color: #6a7a90;
         }
 
-        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -357,6 +375,7 @@
         }
 
         @media (max-width: 780px) {
+            .landing-logo h1 { font-size: 3rem; }
             .hero-content h2 { font-size: 2rem; }
             .main-layout { flex-direction: column; }
             .sidebar { width: 100%; position: static; }
@@ -371,7 +390,7 @@
     <div class="landing-header">
         <div class="landing-logo">
             <h1><span class="hy">HY</span><span class="car">CAR</span></h1>
-            <small>by Haytam & Yassmin</small>
+            <small>by Haytam & Yassmin — Premium car rental</small>
         </div>
     </div>
     <div class="hero-content">
@@ -383,7 +402,7 @@
     </div>
 </div>
 
-<!-- ========== PAGE DES VOITURES (masquée au départ) ========== -->
+<!-- ========== PAGE DES VOITURES ========== -->
 <div id="carsPage" class="cars-page">
     <div class="cars-header">
         <div class="nav-container">
@@ -432,7 +451,7 @@
     </footer>
 </div>
 
-<!-- Modal de réservation -->
+<!-- Modal -->
 <div id="bookingModal" class="modal">
     <div class="modal-content">
         <span class="close-modal">&times;</span>
@@ -450,7 +469,6 @@
 </div>
 
 <script>
-    // Liste des voitures (images réelles)
     const cars = [
         { id: 1, name: "RANGE ROVER SPORT", type: "Premium", pricePerDay: 2200, image: "https://media.production.jlrms.com/styles/thumbnail_big/s3/2020-07-14/image/3a524bd8-34d7-40f0-a547-b4f8fc4b8bdb/RRS_21MY_HSE_DYN_BLACK_150720_01.jpg?VersionId=UhbVhFfH7IKguwjb6EdnV7VUTXRS8P8W&h=b88da0f1&itok=xyCkVAC-", fuel: "Diesel", seats: 5 },
         { id: 2, name: "AUDI Q8", type: "Premium", pricePerDay: 1900, image: "https://m.atcdn.co.uk/vms/media/0d7c8f9e7fb1449d87293de87aa17d57.jpg", fuel: "Essence", seats: 5 },
@@ -459,8 +477,6 @@
         { id: 5, name: "Mercedes Vito", type: "Utilitaire", pricePerDay: 850, image: "https://images.autouncle.com/da/car_images/eb7c7b68-a877-4ee6-8bff-f33ba145a125_2019-mercedes-vito-163.jpg", fuel: "Diesel", seats: 8 },
         { id: 6, name: "BMW SERIE 5", type: "Premium", pricePerDay: 1300, image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/BMW_G60_520d_IAA_2023_1X7A0757.jpg/960px-BMW_G60_520d_IAA_2023_1X7A0757.jpg", fuel: "Essence", seats: 5 }
     ];
-
-    let bookings = []; // stockage simple
 
     function sendWhatsApp(booking) {
         let phone = booking.customerPhone.replace(/\D/g, '');
@@ -517,11 +533,10 @@
 
     function closeModal() { document.getElementById("bookingModal").style.display = "none"; }
 
-    // Événements
     document.getElementById("discoverBtn").addEventListener("click", () => {
         document.getElementById("landingPage").style.display = "none";
         document.getElementById("carsPage").style.display = "block";
-        renderCars(""); // afficher les voitures
+        renderCars("");
     });
 
     document.getElementById("bookingForm").addEventListener("submit", (e) => {
