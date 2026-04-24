@@ -10,24 +10,6 @@
     <meta name="keywords" content="location voiture Maroc, location voiture Casablanca, location voiture Rabat, voiture premium, Range Rover, Audi Q8, BMW, Hyundai Tucson">
     <meta name="author" content="HY CAR by Haytam & Yassmin">
     <meta name="robots" content="index, follow">
-    <meta name="language" content="French">
-    <meta name="revisit-after" content="7 days">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://hycar.ma/">
-    <meta property="og:title" content="HY CAR | Location de Voitures Premium au Maroc">
-    <meta property="og:description" content="Location de voitures premium par Haytam & Yassmin. Découvrez notre flotte de véhicules d'exception.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=1200&h=630&fit=crop">
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://hycar.ma/">
-    <meta property="twitter:title" content="HY CAR | Location de Voitures Premium au Maroc">
-    <meta property="twitter:description" content="Location de voitures premium par Haytam & Yassmin. Découvrez notre flotte de véhicules d'exception.">
-    
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://hycar.ma/">
     
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100' height='100' fill='%231a1a2e'/%3E%3Ctext x='50' y='72' font-size='70' text-anchor='middle' fill='%232d7aff'%3E🚗%3C/text%3E%3C/svg%3E">
@@ -132,7 +114,7 @@
             color: #999;
         }
 
-        /* Theme toggle button - en haut à droite uniquement */
+        /* Theme toggle button */
         .theme-toggle {
             background: rgba(45,122,255,0.15);
             border: 1px solid rgba(45,122,255,0.3);
@@ -165,7 +147,7 @@
             border-color: #2d7aff;
         }
 
-        /* ========== LANDING PAGE ========== */
+        /* ========== LANDING PAGE - VERSION PRÉCÉDENTE ========== */
         .landing {
             height: 100vh;
             width: 100%;
@@ -192,9 +174,6 @@
         .landing-content {
             max-width: 800px;
             padding: 2rem;
-            background: rgba(0,0,0,0.3);
-            border-radius: 30px;
-            backdrop-filter: blur(3px);
         }
 
         .logo-landing h1 {
@@ -210,7 +189,7 @@
         .logo-landing .sub {
             font-size: 0.8rem;
             letter-spacing: 4px;
-            color: #ddd;
+            color: #ccc;
             margin-top: 0.5rem;
         }
 
@@ -288,7 +267,6 @@
             position: relative;
         }
 
-        /* Logo au centre */
         .logo-center {
             position: absolute;
             left: 50%;
@@ -313,7 +291,6 @@
         body.dark .logo-center small { color: #888; }
         body.light .logo-center small { color: #999; }
 
-        /* Layout */
         .dashboard {
             max-width: 1400px;
             margin: 1.5rem auto;
@@ -322,7 +299,6 @@
             gap: 2rem;
         }
 
-        /* Sidebar */
         .sidebar {
             width: 280px;
             flex-shrink: 0;
@@ -390,7 +366,6 @@
             text-decoration: none;
         }
 
-        /* Cars container */
         .cars-container {
             flex: 1;
         }
@@ -504,7 +479,6 @@
             color: white !important;
         }
 
-        /* Reviews */
         .reviews-wrapper {
             margin-top: 2rem;
         }
@@ -578,11 +552,11 @@
             line-height: 1.4;
         }
 
-        /* Partners */
+        /* Partners with car logos */
         .partners {
             border-top: 1px solid;
             border-bottom: 1px solid;
-            padding: 1rem 0;
+            padding: 1.5rem 0;
             margin-top: 2rem;
         }
         body.dark .partners {
@@ -596,27 +570,47 @@
 
         .partners h4 {
             text-align: center;
-            font-size: 0.7rem;
+            font-size: 0.8rem;
             letter-spacing: 2px;
-            margin-bottom: 0.8rem;
+            margin-bottom: 1.2rem;
         }
-        body.dark .partners h4 { color: #888; }
-        body.light .partners h4 { color: #aaa; }
+        body.dark .partners h4 { color: #aaa; }
+        body.light .partners h4 { color: #888; }
 
         .logos-container {
             display: flex;
             justify-content: center;
             gap: 2rem;
             flex-wrap: wrap;
+            align-items: center;
         }
 
-        .logos-container i {
-            font-size: 1.5rem;
-            transition: 0.2s;
+        .logos-container img {
+            height: 40px;
+            width: auto;
+            opacity: 0.7;
+            transition: all 0.2s;
         }
-        body.dark .logos-container i { color: #555; }
-        body.light .logos-container i { color: #aaa; }
-        .logos-container i:hover { color: #2d7aff; }
+
+        body.dark .logos-container img {
+            filter: brightness(0) invert(0.7);
+        }
+
+        body.light .logos-container img {
+            filter: brightness(0.3) invert(0);
+            opacity: 0.6;
+        }
+
+        .logos-container img:hover {
+            opacity: 1;
+            filter: brightness(0) invert(0);
+            transform: scale(1.05);
+        }
+
+        body.light .logos-container img:hover {
+            filter: brightness(0) invert(0);
+            opacity: 1;
+        }
 
         footer {
             text-align: center;
@@ -714,15 +708,17 @@
             .logo-landing h1 {
                 font-size: 3rem;
             }
-            .landing-content {
-                margin: 0 1rem;
-                padding: 1.5rem;
+            .logos-container img {
+                height: 30px;
+            }
+            .logos-container {
+                gap: 1rem;
             }
         }
     </style>
 </head>
 <body class="dark">
-    <!-- PAGE LANDING -->
+    <!-- PAGE LANDING - MÊME STYLE QUE LE CODE PRÉCÉDENT -->
     <div id="landingPage" class="landing">
         <div class="landing-content">
             <div class="logo-landing">
@@ -794,23 +790,17 @@
             </div>
         </div>
 
+        <!-- Partenaires avec les vrais logos SVG -->
         <div class="partners">
-            <h4><i class="fas fa-handshake"></i> NOS PARTENAIRES</h4>
-            <div class="logos-container">
-                <i class="fas fa-car"></i>
-                <i class="fas fa-truck"></i>
-                <i class="fas fa-car-side"></i>
-                <i class="fas fa-gas-pump"></i>
-                <i class="fas fa-caravan"></i>
-                <i class="fas fa-shield-alt"></i>
-            </div>
+            <h4><i class="fas fa-handshake"></i> NOS PARTENAIRES CONSTRUCTEURS</h4>
+            <div class="logos-container" id="logosContainer"></div>
         </div>
         <footer>
             <p>HY CAR © 2025 — Location de confiance | by Haytam & Yassmin | Location voiture Maroc</p>
         </footer>
     </div>
 
-    <!-- MODAL (Sans champ téléphone) -->
+    <!-- MODAL (sans champ téléphone) -->
     <div id="bookingModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -843,6 +833,23 @@
     </div>
 
     <script>
+        // Liste des logos SVGs
+        const carLogos = [
+            { name: "BMW", url: "https://www.svgrepo.com/show/303123/bmw-logo.svg" },
+            { name: "Mercedes", url: "https://www.svgrepo.com/show/446900/mercedes-benz-alt.svg" },
+            { name: "Hyundai", url: "https://www.svgrepo.com/show/306214/hyundai.svg" },
+            { name: "Renault", url: "https://www.svgrepo.com/show/446916/renault-alt.svg" },
+            { name: "Dacia", url: "https://www.svgrepo.com/show/446949/dacia.svg" },
+            { name: "Citroën", url: "https://www.svgrepo.com/show/305860/citroen.svg" },
+            { name: "Audi", url: "https://www.svgrepo.com/show/446942/audi.svg" },
+            { name: "Land Rover", url: "https://www.svgrepo.com/show/330818/landrover.svg" },
+            { name: "Alfa Romeo", url: "https://www.svgrepo.com/show/303633/alfaromeo-logo.svg" },
+            { name: "Peugeot", url: "https://www.svgrepo.com/show/446909/peugeot-alt.svg" },
+            { name: "Fiat", url: "https://www.svgrepo.com/show/446871/fiat.svg" },
+            { name: "Ford", url: "https://www.svgrepo.com/show/446869/ford.svg" },
+            { name: "Nissan", url: "https://www.svgrepo.com/show/452074/nissan.svg" }
+        ];
+
         // Voitures
         const cars = [
             { id: 1, name: "RANGE ROVER SPORT", type: "Premium", price: 2200, image: "https://media.production.jlrms.com/styles/thumbnail_big/s3/2020-07-14/image/3a524bd8-34d7-40f0-a547-b4f8fc4b8bdb/RRS_21MY_HSE_DYN_BLACK_150720_01.jpg", fuel: "Diesel", seats: 5 },
@@ -899,6 +906,16 @@
             setTheme(true);
         }
 
+        // Render logos
+        function renderLogos() {
+            const container = document.getElementById('logosContainer');
+            if (!container) return;
+            
+            container.innerHTML = carLogos.map(logo => `
+                <img src="${logo.url}" alt="${logo.name} logo" title="${logo.name}" loading="lazy" onerror="this.src='https://placehold.co/200x80?text=${logo.name}'">
+            `).join('');
+        }
+
         function renderCars(search = "") {
             let filtered = cars.filter(c => c.name.toLowerCase().includes(search.toLowerCase()));
             const grid = document.getElementById("carsGrid");
@@ -911,21 +928,18 @@
             }
             
             grid.innerHTML = filtered.map(car => `
-                <div class="car-card" itemscope itemtype="https://schema.org/Product">
-                    <div class="car-image" style="background-image: url('${car.image}'); background-size: cover; background-position: center;" itemprop="image"></div>
-                    <div class="car-badge">${car.type}</div>
+                <div class="car-card">
+                    <div class="car-image" style="background-image: url('${car.image}'); background-size: cover; background-position: center;">
+                        <div class="car-badge">${car.type}</div>
+                    </div>
                     <div class="car-details">
-                        <div class="car-name" itemprop="name">${car.name}</div>
+                        <div class="car-name">${car.name}</div>
                         <div class="car-specs">
                             <span><i class="fas fa-gas-pump"></i> ${car.fuel}</span>
                             <span><i class="fas fa-users"></i> ${car.seats} places</span>
                             <span><i class="fas fa-cog"></i> Auto</span>
                         </div>
-                        <div class="car-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-                            ${car.price} <span>DH/jour</span>
-                            <meta itemprop="price" content="${car.price}">
-                            <meta itemprop="priceCurrency" content="MAD">
-                        </div>
+                        <div class="car-price">${car.price} <span>DH/jour</span></div>
                         <button class="btn-book" data-id="${car.id}" data-name="${car.name}" data-price="${car.price}">Réserver</button>
                     </div>
                 </div>
@@ -981,6 +995,7 @@
                 document.getElementById("mainPage").style.display = "block";
                 renderCars("");
                 renderReviews();
+                renderLogos();
             }, 500);
         });
 
@@ -1007,8 +1022,6 @@
             }
             
             const total = days * car.price;
-            
-            // Message sans numéro de téléphone (le client apparaîtra via WhatsApp)
             const message = `Bonjour HY CAR! 👋\n\n📌 NOUVELLE RÉSERVATION\n🚗 ${carName}\n👤 Client: ${customerName}\n📅 Du ${startDate} au ${endDate}\n📆 ${days} jours\n💰 Total: ${total} DH\n\nMerci de confirmer cette réservation.`;
             
             window.open(`https://wa.me/${AGENCY_WHATSAPP}?text=${encodeURIComponent(message)}`, '_blank');
