@@ -1,35 +1,35 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HyCar | كراء السيارات</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>HyCar | Location de Voitures au Maroc</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Tajawal', sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
 
         body {
-            background-color: #f8fafc;
-            color: #0f172a;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
         }
 
-        /* Header & Navigation */
+        /* Header */
         header {
-            background: linear-gradient(135deg, #0f172a, #1e293b);
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
             color: white;
             padding: 1rem 2rem;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
         }
 
         .nav-container {
@@ -47,7 +47,7 @@
         }
 
         .logo span {
-            color: #38bdf8;
+            color: #ffd700;
         }
 
         .nav-links {
@@ -64,7 +64,7 @@
         }
 
         .nav-links a:hover {
-            color: #38bdf8;
+            color: #ffd700;
         }
 
         .menu-toggle {
@@ -73,9 +73,9 @@
             cursor: pointer;
         }
 
-        /* Hero Section */
+        /* Hero */
         .hero {
-            background: linear-gradient(135deg, #0f172a, #1e293b);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             padding: 4rem 2rem;
             text-align: center;
@@ -84,50 +84,64 @@
         .hero h1 {
             font-size: 3rem;
             margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease;
         }
 
         .hero p {
             font-size: 1.2rem;
-            opacity: 0.9;
             max-width: 700px;
             margin: 0 auto 2rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .search-bar {
-            max-width: 600px;
+            max-width: 500px;
             margin: 0 auto;
             display: flex;
             gap: 0.5rem;
             background: white;
-            border-radius: 60px;
+            border-radius: 50px;
             padding: 0.3rem;
+            animation: fadeInUp 1.2s ease;
         }
 
         .search-bar input {
             flex: 1;
             padding: 1rem 1.5rem;
             border: none;
-            border-radius: 60px;
+            border-radius: 50px;
             font-size: 1rem;
             outline: none;
         }
 
         .search-bar button {
-            background: #38bdf8;
+            background: #ffd700;
             border: none;
             padding: 0 2rem;
-            border-radius: 60px;
-            color: white;
+            border-radius: 50px;
+            color: #1e3c72;
             font-weight: bold;
             cursor: pointer;
             transition: 0.3s;
         }
 
         .search-bar button:hover {
-            background: #0ea5e9;
+            background: #ffed4a;
+            transform: scale(1.02);
         }
 
-        /* Cars Grid */
+        /* Container */
         .container {
             max-width: 1400px;
             margin: 3rem auto;
@@ -137,35 +151,48 @@
         .section-title {
             font-size: 2rem;
             margin-bottom: 2rem;
-            border-right: 5px solid #38bdf8;
-            padding-right: 1rem;
+            text-align: center;
+            color: #1e3c72;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #ffd700;
+            margin: 10px auto 0;
+            border-radius: 5px;
         }
 
         .filters {
             display: flex;
             gap: 1rem;
             flex-wrap: wrap;
+            justify-content: center;
             margin-bottom: 2rem;
         }
 
         .filter-btn {
-            background: #e2e8f0;
-            border: none;
-            padding: 0.5rem 1.5rem;
-            border-radius: 40px;
+            background: white;
+            border: 2px solid #1e3c72;
+            padding: 0.6rem 1.8rem;
+            border-radius: 50px;
             cursor: pointer;
-            font-weight: 500;
+            font-weight: 600;
             transition: 0.3s;
+            color: #1e3c72;
         }
 
         .filter-btn.active, .filter-btn:hover {
-            background: #38bdf8;
+            background: #1e3c72;
             color: white;
+            border-color: #ffd700;
         }
 
         .cars-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 2rem;
         }
 
@@ -173,18 +200,18 @@
             background: white;
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
             cursor: pointer;
         }
 
         .car-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 35px rgba(0,0,0,0.1);
+            transform: translateY(-10px);
+            box-shadow: 0 25px 45px rgba(0,0,0,0.2);
         }
 
         .car-img {
-            height: 200px;
+            height: 220px;
             background-size: cover;
             background-position: center;
             position: relative;
@@ -193,10 +220,10 @@
         .car-badge {
             position: absolute;
             top: 1rem;
-            left: 1rem;
-            background: #38bdf8;
-            color: white;
-            padding: 0.3rem 1rem;
+            right: 1rem;
+            background: #ffd700;
+            color: #1e3c72;
+            padding: 0.4rem 1rem;
             border-radius: 30px;
             font-size: 0.8rem;
             font-weight: bold;
@@ -207,39 +234,40 @@
         }
 
         .car-title {
-            font-size: 1.5rem;
-            font-weight: 800;
+            font-size: 1.4rem;
+            font-weight: 700;
             margin-bottom: 0.5rem;
+            color: #1e3c72;
         }
 
         .car-details {
             display: flex;
-            gap: 1rem;
+ gap: 1rem;
             margin: 1rem 0;
-            color: #475569;
-            font-size: 0.9rem;
+            color: #666;
+            font-size: 0.85rem;
         }
 
         .car-details i {
-            margin-left: 0.3rem;
-            color: #38bdf8;
+            margin-right: 0.3rem;
+            color: #ffd700;
         }
 
         .price {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: 800;
-            color: #0f172a;
+            color: #2a5298;
         }
 
         .price span {
             font-size: 0.9rem;
             font-weight: normal;
-            color: #64748b;
+            color: #999;
         }
 
         .book-btn {
             display: block;
-            background: #0f172a;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
             color: white;
             text-align: center;
             padding: 0.8rem;
@@ -248,10 +276,14 @@
             margin-top: 1rem;
             transition: 0.3s;
             font-weight: bold;
+            border: none;
+            width: 100%;
+            cursor: pointer;
         }
 
         .book-btn:hover {
-            background: #38bdf8;
+            background: linear-gradient(135deg, #ffd700, #ffed4a);
+            color: #1e3c72;
         }
 
         /* Modal */
@@ -262,56 +294,93 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.7);
+            background: rgba(0,0,0,0.8);
             justify-content: center;
             align-items: center;
             z-index: 1000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         .modal-content {
             background: white;
             max-width: 500px;
             width: 90%;
-            border-radius: 20px;
+            border-radius: 25px;
             padding: 2rem;
             position: relative;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
 
         .close-modal {
             position: absolute;
             top: 1rem;
-            left: 1rem;
+            right: 1rem;
             font-size: 1.5rem;
             cursor: pointer;
+            color: #999;
+            transition: 0.3s;
+        }
+
+        .close-modal:hover {
+            color: #1e3c72;
         }
 
         .form-group {
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
         }
 
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
-            font-weight: 500;
+            font-weight: 600;
+            color: #1e3c72;
         }
 
-        .form-group input {
+        .form-group input, .form-group select {
             width: 100%;
             padding: 0.8rem;
-            border: 1px solid #cbd5e1;
+            border: 2px solid #e0e0e0;
             border-radius: 12px;
             outline: none;
+            transition: 0.3s;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            border-color: #ffd700;
         }
 
         .submit-booking {
-            background: #38bdf8;
+            background: linear-gradient(135deg, #25d366, #128C7E);
             color: white;
             border: none;
             width: 100%;
-            padding: 0.8rem;
+            padding: 1rem;
             border-radius: 50px;
             font-weight: bold;
             cursor: pointer;
+            font-size: 1.1rem;
+            transition: 0.3s;
+        }
+
+        .submit-booking:hover {
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(37,211,102,0.3);
         }
 
         /* Dashboard */
@@ -323,7 +392,7 @@
         }
 
         .booking-item {
-            background: #f1f5f9;
+            background: #f8f9fa;
             margin: 1rem 0;
             padding: 1rem;
             border-radius: 15px;
@@ -331,22 +400,39 @@
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
+            border-right: 4px solid #ffd700;
         }
 
         .delete-booking {
-            background: #ef4444;
+            background: #dc3545;
             color: white;
             border: none;
-            padding: 0.5rem 1rem;
+            padding: 0.5rem 1.2rem;
             border-radius: 30px;
             cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .delete-booking:hover {
+            background: #c82333;
+            transform: scale(1.05);
+        }
+
+        .whatsapp-alert {
+            background: #25d366;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            display: inline-block;
+            margin-left: 0.5rem;
         }
 
         footer {
             text-align: center;
             padding: 2rem;
-            background: #0f172a;
-            color: #94a3b8;
+            background: #1e3c72;
+            color: white;
             margin-top: 3rem;
         }
 
@@ -365,7 +451,10 @@
                 display: block;
             }
             .hero h1 {
-                font-size: 2rem;
+                font-size: 1.8rem;
+            }
+            .cars-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -377,30 +466,29 @@
         <div class="logo">Hy<span>Car</span></div>
         <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
         <ul class="nav-links" id="navLinks">
-            <li><a href="#" data-nav="home">الرئيسية</a></li>
-            <li><a href="#" data-nav="dashboard">لوحة الحجوزات</a></li>
-            <li><a href="#" data-nav="about">من نحن</a></li>
+            <li><a href="#" data-nav="home">Accueil</a></li>
+            <li><a href="#" data-nav="dashboard">Mes Réservations</a></li>
+            <li><a href="#" data-nav="about">À Propos</a></li>
         </ul>
     </div>
 </header>
 
 <main id="mainContent">
-    <!-- Hero & Cars Section (Default) -->
     <div id="homePage">
         <div class="hero">
-            <h1>استأجر سيارتك المثالية</h1>
-            <p>أسعار تنافسية، أسطول حديث، ونحن نضمن لك رحلة ممتعة مع HyCar</p>
+            <h1>🚗 Location de Voitures au Maroc</h1>
+            <p> découvrez notre flotte de véhicules modernes aux prix imbattables. Réservation simple et livraison gratuite !</p>
             <div class="search-bar">
-                <input type="text" id="searchInput" placeholder="ابحث عن سيارة... (مثل مرسيدس)">
-                <button id="searchBtn"><i class="fas fa-search"></i> بحث</button>
+                <input type="text" id="searchInput" placeholder="🔍 Rechercher une voiture... (Ex: Mercedes, Dacia)">
+                <button id="searchBtn"><i class="fas fa-search"></i> Chercher</button>
             </div>
         </div>
         <div class="container">
             <div class="filters" id="filters">
-                <button class="filter-btn active" data-filter="all">الكل</button>
-                <button class="filter-btn" data-filter="اقتصادية">اقتصادية</button>
-                <button class="filter-btn" data-filter="SUV">SUV</button>
-                <button class="filter-btn" data-filter="فاخرة">فاخرة</button>
+                <button class="filter-btn active" data-filter="all">Toutes</button>
+                <button class="filter-btn" data-filter="Economique">Économique</button>
+                <button class="filter-btn" data-filter="SUV">SUV & 4x4</button>
+                <button class="filter-btn" data-filter="Luxe">Luxe</button>
             </div>
             <div class="cars-grid" id="carsGrid"></div>
         </div>
@@ -408,121 +496,137 @@
 
     <div id="dashboardPage" style="display: none;">
         <div class="container">
-            <h2 class="section-title">📋 لوحة إدارة الحجوزات</h2>
+            <h2 class="section-title">📋 Mes Réservations</h2>
             <div class="dashboard" id="bookingsList">
-                <p>لا توجد حجوزات بعد...</p>
+                <p style="text-align:center;">Aucune réservation pour le moment...</p>
             </div>
         </div>
     </div>
 
     <div id="aboutPage" style="display: none;">
         <div class="container">
-            <h2 class="section-title">🚗 من نحن</h2>
-            <div style="background: white; padding: 2rem; border-radius: 20px;">
-                <p style="font-size: 1.2rem; line-height: 1.8;">HyCar هي شركة رائدة في مجال كراء السيارات في المغرب والوطن العربي. نقدم أسطولاً حديثاً من السيارات الاقتصادية، العائلية، والفاخرة بأسعار تنافسية. نضمن لك تجربة قيادة آمنة وممتعة مع خدمة عملاء على مدار الساعة.</p>
+            <h2 class="section-title">🌟 À Propos de HyCar</h2>
+            <div style="background: white; padding: 2.5rem; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                <p style="font-size: 1.1rem; line-height: 1.8;">HyCar est le leader de la location de voitures au Maroc. Nous proposons une large gamme de véhicules récents, entretenus et assurés.</p>
                 <br>
-                <p><i class="fas fa-check-circle" style="color: #38bdf8;"></i> أكثر من 500 سيارة في الأسطول</p>
-                <p><i class="fas fa-check-circle" style="color: #38bdf8;"></i> تأمين شامل ضد الغير</p>
-                <p><i class="fas fa-check-circle" style="color: #38bdf8;"></i> خدمة التوصيل إلى المطار</p>
-                <p><i class="fas fa-check-circle" style="color: #38bdf8;"></i> أسعار شفافة بدون رسوم خفية</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 1rem; margin-top: 1.5rem;">
+                    <div><i class="fas fa-check-circle" style="color: #25d366;"></i> <strong>+500 véhicules</strong></div>
+                    <div><i class="fas fa-check-circle" style="color: #25d366;"></i> <strong>Assurance tous risques</strong></div>
+                    <div><i class="fas fa-check-circle" style="color: #25d366;"></i> <strong>Livraison gratuite</strong></div>
+                    <div><i class="fas fa-check-circle" style="color: #25d366;"></i> <strong>Support 24/7</strong></div>
+                </div>
+                <br>
+                <p><i class="fas fa-phone-alt"></i> Contactez-nous directement sur WhatsApp pour toute urgence.</p>
             </div>
         </div>
     </div>
 </main>
 
 <footer>
-    <p>© 2025 HyCar - كراء السيارات بثقة. جميع الحقوق محفوظة</p>
+    <p>© 2025 HyCar - Location de voitures au Maroc. Tous droits réservés | <i class="fab fa-whatsapp"></i> Service client 24/7</p>
 </footer>
 
-<!-- Modal for Booking -->
 <div id="bookingModal" class="modal">
     <div class="modal-content">
         <span class="close-modal">&times;</span>
-        <h3 style="margin-bottom: 1rem;">حجز السيارة</h3>
+        <h3 style="margin-bottom: 1rem; color:#1e3c72;">📝 Réservation de véhicule</h3>
         <form id="bookingForm">
             <input type="hidden" id="carId">
             <div class="form-group">
-                <label>اسم السيارة</label>
+                <label>🚗 Véhicule</label>
                 <input type="text" id="modalCarName" readonly>
             </div>
             <div class="form-group">
-                <label>الاسم الكامل</label>
-                <input type="text" id="customerName" required placeholder="أدخل اسمك">
+                <label>👤 Nom complet</label>
+                <input type="text" id="customerName" required placeholder="Votre nom et prénom">
             </div>
             <div class="form-group">
-                <label>رقم الهاتف</label>
-                <input type="tel" id="customerPhone" required placeholder="رقم الجوال">
+                <label>📞 Téléphone (WhatsApp)</label>
+                <input type="tel" id="customerPhone" required placeholder="+212 6XX XXX XXX">
             </div>
             <div class="form-group">
-                <label>تاريخ البداية</label>
+                <label>📅 Date de début</label>
                 <input type="date" id="startDate" required>
             </div>
             <div class="form-group">
-                <label>تاريخ النهاية</label>
+                <label>📅 Date de fin</label>
                 <input type="date" id="endDate" required>
             </div>
-            <button type="submit" class="submit-booking">تأكيد الحجز</button>
+            <button type="submit" class="submit-booking">
+                <i class="fab fa-whatsapp"></i> Confirmer & Envoyer sur WhatsApp
+            </button>
         </form>
     </div>
 </div>
 
 <script>
-    // ---------- Data ----------
-    let cars = [
-        { id: 1, name: "مرسيدس E200", type: "فاخرة", pricePerDay: 1200, image: "https://via.placeholder.com/400x200?text=Mercedes+E200", badge: "فاخرة" },
-        { id: 2, name: "تويوتا كورولا", type: "اقتصادية", pricePerDay: 350, image: "https://via.placeholder.com/400x200?text=Toyota+Corolla", badge: "اقتصادية" },
-        { id: 3, name: "هيونداي توسان", type: "SUV", pricePerDay: 650, image: "https://via.placeholder.com/400x200?text=Hyundai+Tucson", badge: "SUV" },
-        { id: 4, name: "بي إم دبليو X5", type: "SUV", pricePerDay: 1100, image: "https://via.placeholder.com/400x200?text=BMW+X5", badge: "SUV" },
-        { id: 5, name: "كيا ريو", type: "اقتصادية", pricePerDay: 300, image: "https://via.placeholder.com/400x200?text=Kia+Rio", badge: "اقتصادية" },
-        { id: 6, name: "أودي A6", type: "فاخرة", pricePerDay: 1300, image: "https://via.placeholder.com/400x200?text=Audi+A6", badge: "فاخرة" },
-        { id: 7, name: "رينو داستر", type: "SUV", pricePerDay: 550, image: "https://via.placeholder.com/400x200?text=Dacia+Duster", badge: "SUV" },
-        { id: 8, name: "فولكس فاجن بولو", type: "اقتصادية", pricePerDay: 320, image: "https://via.placeholder.com/400x200?text=VW+Polo", badge: "اقتصادية" }
+    // ----- VRAIES IMAGES DE VOITURES (Unsplash / images réelles de qualité) -----
+    const cars = [
+        { id: 1, name: "Dacia Sandero Stepway", type: "Economique", pricePerDay: 250, image: "https://images.unsplash.com/photo-1621839673705-6617adf9e890?w=400&h=250&fit=crop", badge: "Économique" },
+        { id: 2, name: "Renault Clio 5", type: "Economique", pricePerDay: 280, image: "https://images.unsplash.com/photo-1631295868223-63228b10f2e0?w=400&h=250&fit=crop", badge: "Économique" },
+        { id: 3, name: "Mercedes Classe C", type: "Luxe", pricePerDay: 1200, image: "https://images.unsplash.com/photo-1616422285623-13ff0792195c?w=400&h=250&fit=crop", badge: "Luxe" },
+        { id: 4, name: "BMW X5", type: "SUV", pricePerDay: 1500, image: "https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=400&h=250&fit=crop", badge: "SUV" },
+        { id: 5, name: "Hyundai Tucson", type: "SUV", pricePerDay: 650, image: "https://images.unsplash.com/photo-1623869675786-e9b1e19a5f5e?w=400&h=250&fit=crop", badge: "SUV" },
+        { id: 6, name: "Audi A6", type: "Luxe", pricePerDay: 1350, image: "https://images.unsplash.com/photo-1606664515524-8b9b4b0d39b5?w=400&h=250&fit=crop", badge: "Luxe" },
+        { id: 7, name: "Peugeot 208", type: "Economique", pricePerDay: 260, image: "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=400&h=250&fit=crop", badge: "Économique" },
+        { id: 8, name: "Toyota Land Cruiser", type: "SUV", pricePerDay: 1200, image: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=400&h=250&fit=crop", badge: "SUV" },
+        { id: 9, name: "Range Rover Velar", type: "Luxe", pricePerDay: 2000, image: "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=400&h=250&fit=crop", badge: "Luxe" },
+        { id: 10, name: "Volkswagen Golf 8", type: "Economique", pricePerDay: 300, image: "https://images.unsplash.com/photo-1621135802920-133df287f89c?w=400&h=250&fit=crop", badge: "Économique" }
     ];
 
-    let bookings = JSON.parse(localStorage.getItem('hycar_bookings')) || [];
+    let bookings = JSON.parse(localStorage.getItem('hycar_bookings_fr')) || [];
 
-    // Save bookings to localStorage
     function saveBookings() {
-        localStorage.setItem('hycar_bookings', JSON.stringify(bookings));
+        localStorage.setItem('hycar_bookings_fr', JSON.stringify(bookings));
     }
 
-    // Helper: render cars
+    // Format WhatsApp message and send
+    function sendWhatsAppBooking(booking, car) {
+        const phone = booking.customerPhone.replace(/\D/g, '');
+        const finalPhone = phone.startsWith('212') ? phone : '212' + phone.slice(1);
+        const startDate = booking.startDate;
+        const endDate = booking.endDate;
+        const totalDays = booking.totalDays;
+        const totalPrice = booking.totalPrice;
+        
+        const message = `Bonjour HyCar! 👋\n\nJe souhaite réserver le véhicule : *${booking.carName}*\n📅 Du : ${startDate}\n📅 Au : ${endDate}\n📆 Durée : ${totalDays} jour(s)\n💰 Prix total : ${totalPrice} DH\n\n👤 Nom : ${booking.customerName}\n📞 Téléphone : ${booking.customerPhone}\n\n✅ Merci de confirmer ma réservation.`;
+        
+        const whatsappUrl = `https://wa.me/${finalPhone}?text=${encodeURIComponent(message)}`;
+        window.open(whatsappUrl, '_blank');
+    }
+
     function renderCars(filterType = "all", searchTerm = "") {
         let filtered = cars;
-        if (filterType !== "all") {
-            filtered = filtered.filter(car => car.type === filterType);
-        }
-        if (searchTerm.trim() !== "") {
-            filtered = filtered.filter(car => car.name.toLowerCase().includes(searchTerm.toLowerCase()));
-        }
+        if (filterType !== "all") filtered = filtered.filter(car => car.type === filterType);
+        if (searchTerm.trim() !== "") filtered = filtered.filter(car => car.name.toLowerCase().includes(searchTerm.toLowerCase()));
+        
         const grid = document.getElementById("carsGrid");
         if (!grid) return;
         if (filtered.length === 0) {
-            grid.innerHTML = "<p style='text-align:center; grid-column:1/-1;'>لا توجد سيارات مطابقة للبحث</p>";
+            grid.innerHTML = "<p style='text-align:center; grid-column:1/-1;'>🚫 Aucune voiture trouvée</p>";
             return;
         }
+        
         grid.innerHTML = filtered.map(car => `
-            <div class="car-card" data-id="${car.id}">
-                <div class="car-img" style="background-image: url('${car.image}');">
+            <div class="car-card">
+                <div class="car-img" style="background-image: url('${car.image}'); background-size: cover;">
                     <div class="car-badge">${car.badge}</div>
                 </div>
                 <div class="car-info">
                     <div class="car-title">${car.name}</div>
                     <div class="car-details">
-                        <span><i class="fas fa-gas-pump"></i> بنزين</span>
-                        <span><i class="fas fa-chair"></i> 5 مقاعد</span>
-                        <span><i class="fas fa-car"></i> أوتوماتيك</span>
+                        <span><i class="fas fa-oil-can"></i> Essence</span>
+                        <span><i class="fas fa-users"></i> 5 places</span>
+                        <span><i class="fas fa-cog"></i> Automatique</span>
                     </div>
-                    <div class="price">${car.pricePerDay} <span>درهم/يوم</span></div>
-                    <button class="book-btn" data-id="${car.id}" data-name="${car.name}" data-price="${car.pricePerDay}">حجز الآن</button>
+                    <div class="price">${car.pricePerDay} <span>DH/jour</span></div>
+                    <button class="book-btn" data-id="${car.id}" data-name="${car.name}" data-price="${car.pricePerDay}">📅 Réserver maintenant</button>
                 </div>
             </div>
         `).join('');
-
-        // Attach booking events
+        
         document.querySelectorAll('.book-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
-                e.stopPropagation();
                 const id = parseInt(btn.dataset.id);
                 const name = btn.dataset.name;
                 const price = btn.dataset.price;
@@ -531,18 +635,16 @@
         });
     }
 
-    // Modal logic
-    let currentCar = null;
     function openBookingModal(carId, carName, pricePerDay) {
-        currentCar = { id: carId, name: carName, pricePerDay: parseInt(pricePerDay) };
         document.getElementById("modalCarName").value = carName;
         document.getElementById("carId").value = carId;
-        // Set default dates: tomorrow & day after
+        
         const today = new Date();
         const tomorrow = new Date(today);
         tomorrow.setDate(today.getDate() + 1);
         const dayAfter = new Date(today);
-        dayAfter.setDate(today.getDate() + 3);
+        dayAfter.setDate(today.getDate() + 4);
+        
         document.getElementById("startDate").value = tomorrow.toISOString().split('T')[0];
         document.getElementById("endDate").value = dayAfter.toISOString().split('T')[0];
         document.getElementById("customerName").value = "";
@@ -554,7 +656,6 @@
         document.getElementById("bookingModal").style.display = "none";
     }
 
-    // Submit booking
     document.getElementById("bookingForm").addEventListener("submit", function(e) {
         e.preventDefault();
         const carId = parseInt(document.getElementById("carId").value);
@@ -563,18 +664,25 @@
         const customerPhone = document.getElementById("customerPhone").value.trim();
         const startDate = document.getElementById("startDate").value;
         const endDate = document.getElementById("endDate").value;
+        
         if (!customerName || !customerPhone || !startDate || !endDate) {
-            alert("يرجى ملء جميع الحقول");
+            alert("⚠️ Veuillez remplir tous les champs.");
             return;
         }
+        
         const carData = cars.find(c => c.id === carId);
         if (!carData) return;
-        const totalDays = Math.ceil((new Date(endDate) - new Date(startDate)) / (1000 * 60 * 60 * 24));
+        
+        const start = new Date(startDate);
+        const end = new Date(endDate);
+        const totalDays = Math.ceil((end - start) / (1000 * 60 * 60 * 24));
         if (totalDays <= 0) {
-            alert("تاريخ النهاية يجب أن يكون بعد تاريخ البداية");
+            alert("📅 La date de fin doit être après la date de début.");
             return;
         }
+        
         const totalPrice = totalDays * carData.pricePerDay;
+        
         const newBooking = {
             id: Date.now(),
             carId: carId,
@@ -585,55 +693,60 @@
             endDate: endDate,
             totalDays: totalDays,
             totalPrice: totalPrice,
-            status: "مؤكد"
+            status: "En attente"
         };
+        
         bookings.push(newBooking);
         saveBookings();
-        alert(`تم حجز السيارة ${carName} بنجاح! المبلغ الإجمالي: ${totalPrice} درهم`);
+        
+        // Envoyer la réservation via WhatsApp
+        sendWhatsAppBooking(newBooking, carData);
+        
+        alert(`✅ Réservation confirmée ! Un message WhatsApp a été envoyé au ${customerPhone}\n💰 Total : ${totalPrice} DH`);
         closeModal();
-        // If dashboard is visible, refresh bookings
+        
         if (document.getElementById("dashboardPage").style.display === "block") {
             renderBookings();
         }
     });
-
+    
     function renderBookings() {
         const container = document.getElementById("bookingsList");
         if (!container) return;
         if (bookings.length === 0) {
-            container.innerHTML = "<p>لا توجد حجوزات حالياً</p>";
+            container.innerHTML = "<p style='text-align:center;'>📭 Aucune réservation pour le moment...</p>";
             return;
         }
         container.innerHTML = bookings.map(book => `
             <div class="booking-item">
                 <div>
-                    <strong>${book.carName}</strong><br>
-                    الزبون: ${book.customerName} | ${book.customerPhone}<br>
-                    من ${book.startDate} إلى ${book.endDate} (${book.totalDays} يوم) <br>
-                    <span style="color:#0f172a; font-weight:bold;">المجموع: ${book.totalPrice} درهم</span>
+                    <strong>🚘 ${book.carName}</strong><br>
+                    👤 ${book.customerName} | 📞 ${book.customerPhone}<br>
+                    📅 Du ${book.startDate} au ${book.endDate} (${book.totalDays} jours)<br>
+                    💰 <strong style="color:#2a5298;">${book.totalPrice} DH</strong>
                 </div>
-                <button class="delete-booking" data-id="${book.id}"><i class="fas fa-trash"></i> إلغاء</button>
+                <button class="delete-booking" data-id="${book.id}"><i class="fas fa-trash-alt"></i> Annuler</button>
             </div>
         `).join('');
-        // Add delete events
+        
         document.querySelectorAll('.delete-booking').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const id = parseInt(btn.dataset.id);
-                if (confirm("هل أنت متأكد من إلغاء هذا الحجز؟")) {
+                if (confirm("⚠️ Voulez-vous vraiment annuler cette réservation ?")) {
                     bookings = bookings.filter(b => b.id !== id);
                     saveBookings();
                     renderBookings();
-                    alert("تم إلغاء الحجز");
+                    alert("✅ Réservation annulée.");
                 }
             });
         });
     }
-
-    // Navigation logic
+    
+    // Navigation
     const homePageDiv = document.getElementById("homePage");
     const dashboardDiv = document.getElementById("dashboardPage");
     const aboutDiv = document.getElementById("aboutPage");
-
+    
     function showPage(page) {
         homePageDiv.style.display = "none";
         dashboardDiv.style.display = "none";
@@ -645,32 +758,23 @@
         }
         else if (page === "about") aboutDiv.style.display = "block";
     }
-
+    
     document.querySelectorAll("[data-nav]").forEach(link => {
         link.addEventListener("click", (e) => {
             e.preventDefault();
-            const navTo = link.dataset.nav;
-            if (navTo === "home") showPage("home");
-            else if (navTo === "dashboard") showPage("dashboard");
-            else if (navTo === "about") showPage("about");
-            // close mobile menu
+            showPage(link.dataset.nav);
             document.getElementById("navLinks").classList.remove("show");
         });
     });
-
-    // Mobile menu toggle
+    
     document.getElementById("menuToggle").addEventListener("click", () => {
         document.getElementById("navLinks").classList.toggle("show");
     });
-
-    // Filter & Search
+    
     let currentFilter = "all";
     let currentSearch = "";
-    function updateUI() {
-        renderCars(currentFilter, currentSearch);
-    }
-
-    // Filter buttons
+    function updateUI() { renderCars(currentFilter, currentSearch); }
+    
     document.querySelectorAll(".filter-btn").forEach(btn => {
         btn.addEventListener("click", () => {
             document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
@@ -679,7 +783,7 @@
             updateUI();
         });
     });
-
+    
     document.getElementById("searchBtn").addEventListener("click", () => {
         currentSearch = document.getElementById("searchInput").value;
         updateUI();
@@ -690,26 +794,25 @@
             updateUI();
         }
     });
-
-    // close modal on X or outside click
+    
     document.querySelector(".close-modal").addEventListener("click", closeModal);
     window.onclick = function(event) {
         const modal = document.getElementById("bookingModal");
         if (event.target === modal) closeModal();
     };
-
-    // Initial render
-    renderCars("all", "");
-    // Set default date inputs min to tomorrow
-    const tomorrowDate = new Date();
-    tomorrowDate.setDate(tomorrowDate.getDate() + 1);
-    const dateStr = tomorrowDate.toISOString().split('T')[0];
+    
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    const dateStr = tomorrow.toISOString().split('T')[0];
     document.getElementById("startDate").min = dateStr;
     document.getElementById("endDate").min = dateStr;
+    
     setInterval(() => {
         const start = document.getElementById("startDate").value;
         if(start) document.getElementById("endDate").min = start;
     }, 100);
+    
+    renderCars("all", "");
 </script>
 </body>
 </html>
