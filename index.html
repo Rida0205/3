@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>HY CAR | Location de Voitures Premium</title>
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="https://img.icons8.com/ios-filled/100/2d7aff/sports-car.png">
+    <!-- Favicon (voiture sport) -->
+    <link rel="icon" type="image/png" href="https://img.icons8.com/fluency/96/sports-car.png">
+    <link rel="apple-touch-icon" href="https://img.icons8.com/fluency/96/sports-car.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -17,9 +18,16 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: #0b0d15;
+            background: #12141c;  /* Gris foncé élégant, pas noir fermé */
             color: #eef2ff;
             overflow-x: hidden;
+        }
+
+        /* Glass morphism */
+        .glass {
+            background: rgba(18, 20, 28, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(45, 122, 255, 0.2);
         }
 
         /* Typing animation */
@@ -33,11 +41,11 @@
             animation: blink 0.7s step-end infinite;
         }
 
-        /* Header */
+        /* Header moderne */
         header {
-            background: #07090fcc;
+            background: rgba(18, 20, 28, 0.95);
             backdrop-filter: blur(12px);
-            border-bottom: 1px solid #1e2a3a;
+            border-bottom: 1px solid rgba(45, 122, 255, 0.3);
             padding: 0.8rem 2rem;
             position: sticky;
             top: 0;
@@ -57,53 +65,58 @@
             font-weight: 800;
             letter-spacing: -1px;
         }
-        .logo .hy { color: #fff; }
+        .logo .hy {
+            background: linear-gradient(135deg, #fff, #2d7aff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
         .logo .car { color: #2d7aff; }
         .logo small {
             font-size: 0.65rem;
-            color: #7e8a98;
+            color: #8a98aa;
             display: block;
-            line-height: 1.2;
         }
 
         /* Main layout */
         .main-layout {
-            max-width: 1300px;
+            max-width: 1400px;
             margin: 2rem auto;
-            padding: 0 1.5rem;
+            padding: 0 1.8rem;
             display: flex;
             gap: 2rem;
         }
 
-        /* Sidebar search only */
+        /* Sidebar plus lumineuse */
         .sidebar {
             width: 280px;
             flex-shrink: 0;
-            background: #0f121c;
-            border-radius: 24px;
-            padding: 1.5rem;
+            background: #1a1d2b;
+            border-radius: 28px;
+            padding: 1.6rem;
             height: fit-content;
             position: sticky;
             top: 90px;
-            border: 1px solid #1f2a3e;
+            border: 1px solid #2d3a50;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
         }
         .search-box input {
             width: 100%;
             padding: 0.8rem 1rem;
-            background: #080b12;
-            border: 1px solid #253040;
+            background: #0f1119;
+            border: 1px solid #2d3a50;
             border-radius: 40px;
             color: white;
             font-size: 0.85rem;
             outline: none;
+            transition: 0.2s;
         }
-        .search-box input:focus { border-color: #2d7aff; }
+        .search-box input:focus { border-color: #2d7aff; box-shadow: 0 0 8px rgba(45,122,255,0.3); }
 
-        /* Map link */
         .map-link {
             margin-top: 2rem;
             padding-top: 1.2rem;
-            border-top: 1px solid #1f2a3e;
+            border-top: 1px solid #2d3a50;
         }
         .map-link a {
             display: flex;
@@ -113,41 +126,52 @@
             color: #2d7aff;
             font-weight: 500;
             transition: 0.2s;
+            background: rgba(45,122,255,0.1);
+            padding: 0.6rem 1rem;
+            border-radius: 40px;
         }
-        .map-link a:hover { gap: 14px; color: #5c9eff; }
+        .map-link a:hover { gap: 14px; background: rgba(45,122,255,0.2); }
 
-        /* Cars grid */
+        /* Cars section */
         .cars-section { flex: 1; }
         .section-header {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
-        .section-header h2 { font-size: 1.5rem; font-weight: 700; }
-        .cars-count { font-size: 0.8rem; color: #7e8a98; }
+        .section-header h2 { font-size: 1.6rem; font-weight: 700; }
+        .cars-count {
+            background: #2d7aff20;
+            padding: 0.3rem 0.9rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            backdrop-filter: blur(4px);
+        }
 
         .cars-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.8rem;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
         }
 
-        /* Car card */
+        /* Cartes voitures */
         .car-card {
-            background: #0f121c;
-            border-radius: 24px;
+            background: #1a1d2b;
+            border-radius: 28px;
             overflow: hidden;
-            transition: 0.25s ease;
-            border: 1px solid #1f2a3e;
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            border: 1px solid #2d3a50;
         }
         .car-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-6px);
             border-color: #2d7aff;
-            box-shadow: 0 15px 30px -12px rgba(45,122,255,0.25);
+            box-shadow: 0 20px 35px -12px rgba(45,122,255,0.3);
         }
         .car-img {
-            height: 200px;
+            height: 210px;
             background-size: cover;
             background-position: center;
             position: relative;
@@ -156,53 +180,58 @@
             position: absolute;
             top: 12px;
             right: 12px;
-            background: rgba(0,0,0,0.7);
-            backdrop-filter: blur(6px);
-            padding: 0.2rem 0.8rem;
+            background: rgba(0,0,0,0.75);
+            backdrop-filter: blur(8px);
+            padding: 0.3rem 1rem;
             border-radius: 40px;
             font-size: 0.7rem;
             font-weight: 600;
             border: 0.5px solid #2d7aff;
+            letter-spacing: 0.5px;
         }
-        .car-info { padding: 1.2rem; }
+        .car-info { padding: 1.3rem; }
         .car-title {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             font-weight: 700;
-            margin-bottom: 0.2rem;
+            margin-bottom: 0.3rem;
         }
         .car-details {
             display: flex;
             gap: 1rem;
             margin: 0.8rem 0;
-            color: #9aa9bb;
+            color: #aab3c4;
             font-size: 0.75rem;
         }
-        .car-details i { margin-right: 0.2rem; color: #2d7aff; }
+        .car-details i { margin-right: 0.3rem; color: #2d7aff; }
         .price {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             font-weight: 800;
-            color: white;
+            color: #fff;
         }
-        .price span { font-size: 0.7rem; color: #7e8a98; }
+        .price span { font-size: 0.7rem; color: #8a98aa; }
         .book-btn {
-            background: #1e2a3a;
-            border: none;
+            background: linear-gradient(135deg, #1e2a3a, #0f1119);
+            border: 1px solid #2d7aff;
             width: 100%;
-            padding: 0.7rem;
+            padding: 0.75rem;
             border-radius: 40px;
             font-weight: 600;
             color: white;
             cursor: pointer;
-            transition: 0.2s;
+            transition: 0.3s;
             margin-top: 1rem;
         }
-        .book-btn:hover { background: #2d7aff; }
+        .book-btn:hover {
+            background: #2d7aff;
+            box-shadow: 0 5px 15px rgba(45,122,255,0.4);
+            border-color: transparent;
+        }
 
-        /* Partenaires slider */
+        /* Partenaires - vrais logos auto */
         .partners {
-            background: #0a0c12;
-            border-top: 1px solid #1a2330;
-            border-bottom: 1px solid #1a2330;
+            background: #0f1119;
+            border-top: 1px solid #2d7aff30;
+            border-bottom: 1px solid #2d7aff30;
             padding: 2rem 0;
             margin: 2rem 0 0;
             overflow: hidden;
@@ -210,25 +239,26 @@
         .partners h3 {
             text-align: center;
             font-size: 1rem;
-            color: #7e8a98;
+            color: #8a98aa;
             letter-spacing: 2px;
             margin-bottom: 1.5rem;
         }
         .slider {
             display: flex;
-            gap: 3rem;
-            animation: scroll 20s linear infinite;
+            gap: 3.5rem;
+            animation: scroll 22s linear infinite;
             width: fit-content;
         }
         .slider img {
-            height: 45px;
-            filter: grayscale(100%) brightness(0.8);
+            height: 50px;
+            filter: brightness(0) invert(0.7);
             transition: 0.3s;
             opacity: 0.7;
         }
         .slider img:hover {
-            filter: grayscale(0%);
+            filter: brightness(0) invert(1);
             opacity: 1;
+            transform: scale(1.05);
         }
         @keyframes scroll {
             0% { transform: translateX(0); }
@@ -239,7 +269,7 @@
             white-space: nowrap;
         }
 
-        /* Modal */
+        /* Modal améliorée */
         .modal {
             display: none;
             position: fixed;
@@ -247,57 +277,68 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.8);
-            backdrop-filter: blur(8px);
+            background: rgba(0,0,0,0.75);
+            backdrop-filter: blur(12px);
             justify-content: center;
             align-items: center;
             z-index: 1000;
         }
         .modal-content {
-            background: #0f121c;
-            border: 1px solid #2a3649;
-            max-width: 450px;
+            background: #1a1d2b;
+            border: 1px solid #2d7aff;
+            max-width: 480px;
             width: 90%;
-            border-radius: 28px;
-            padding: 1.8rem;
+            border-radius: 32px;
+            padding: 2rem;
         }
         .close-modal {
             float: right;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             cursor: pointer;
+            transition: 0.2s;
         }
-        .form-group { margin-bottom: 1rem; }
+        .close-modal:hover { color: #2d7aff; transform: rotate(90deg); }
+        .form-group { margin-bottom: 1.2rem; }
         .form-group label {
             font-size: 0.8rem;
-            color: #b9c7da;
+            color: #b0bbd0;
+            margin-bottom: 0.3rem;
+            display: block;
         }
         .form-group input {
             width: 100%;
-            padding: 0.7rem;
-            background: #080b12;
-            border: 1px solid #253040;
-            border-radius: 16px;
+            padding: 0.8rem;
+            background: #0f1119;
+            border: 1px solid #2d3a50;
+            border-radius: 20px;
             color: white;
+            outline: none;
         }
+        .form-group input:focus { border-color: #2d7aff; }
         .submit-booking {
             background: #2d7aff;
             width: 100%;
-            padding: 0.8rem;
-            border-radius: 40px;
+            padding: 0.9rem;
+            border-radius: 50px;
             font-weight: bold;
             border: none;
             color: white;
             cursor: pointer;
+            font-size: 1rem;
+            margin-top: 0.5rem;
         }
+
         footer {
             text-align: center;
             padding: 1.5rem;
-            font-size: 0.7rem;
-            color: #5a6a7e;
+            font-size: 0.75rem;
+            color: #6a7a90;
         }
+
         @media (max-width: 850px) {
             .main-layout { flex-direction: column; }
             .sidebar { width: 100%; position: static; }
+            .typing { white-space: normal; border-right: none; }
         }
     </style>
 </head>
@@ -307,7 +348,7 @@
     <div class="nav-container">
         <div class="logo">
             <h1><span class="hy">HY</span><span class="car">CAR</span></h1>
-            <small>by Haytam & Yassmin</small>
+            <small>by Haytam & Yassmin | Premium car rental</small>
         </div>
     </div>
 </header>
@@ -315,13 +356,13 @@
 <div class="main-layout">
     <aside class="sidebar">
         <div class="search-box">
-            <h3 style="margin-bottom: 0.5rem;"><i class="fas fa-search"></i> Rechercher</h3>
-            <input type="text" id="searchInput" placeholder="🔍 Range, Audi, BMW ...">
+            <h3 style="margin-bottom: 0.7rem; color:#2d7aff;"><i class="fas fa-search"></i> Recherche</h3>
+            <input type="text" id="searchInput" placeholder="🔍 Range Rover, Audi, BMW ...">
         </div>
         <div class="map-link">
-            <h3 style="margin-bottom: 0.6rem;"><i class="fas fa-map-pin"></i> Agence</h3>
+            <h3 style="margin-bottom: 0.7rem; color:#2d7aff;"><i class="fas fa-map-pin"></i> Notre agence</h3>
             <a href="https://www.google.com/maps?q=maroc+casablanca+location+voiture" target="_blank">
-                <i class="fas fa-map-marker-alt"></i> Google Maps
+                <i class="fas fa-map-marker-alt"></i> Voir sur Google Maps
                 <i class="fas fa-external-link-alt" style="font-size: 0.7rem;"></i>
             </a>
         </div>
@@ -336,46 +377,43 @@
     </section>
 </div>
 
-<!-- Partenaires : logos défilants -->
+<!-- Partenaires : vrais logos constructeurs -->
 <div class="partners">
-    <h3><i class="fas fa-handshake"></i> Nos partenaires de confiance</h3>
+    <h3><i class="fas fa-handshake"></i> Nos partenaires & constructeurs</h3>
     <div class="slider-wrapper">
         <div class="slider" id="logoSlider">
-            <!-- Les logos passent -->
-            <img src="https://cdn-icons-png.flaticon.com/512/330/330425.png" alt="Mercedes">
-            <img src="https://cdn-icons-png.flaticon.com/512/121/121891.png" alt="BMW">
-            <img src="https://cdn-icons-png.flaticon.com/512/330/330458.png" alt="Audi">
-            <img src="https://cdn-icons-png.flaticon.com/512/741/741407.png" alt="Volkswagen">
-            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135733.png" alt="Hyundai">
-            <img src="https://cdn-icons-png.flaticon.com/512/6124/6124992.png" alt="Range Rover">
-            <!-- duplicate pour effet infini -->
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Mercedes-Benz_Logo_2010.svg/1024px-Mercedes-Benz_Logo_2010.svg.png" alt="Mercedes">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/BMW.svg/1024px-BMW.svg.png" alt="BMW">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Audi_Logo_2016.svg/1024px-Audi_Logo_2016.svg.png" alt="Audi">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Volkswagen_logo_2019.svg/1024px-Volkswagen_logo_2019.svg.png" alt="Volkswagen">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Hyundai_Motor_Company_logo.svg/1024px-Hyundai_Motor_Company_logo.svg.png" alt="Hyundai">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/93/Land_Rover_logo_black.svg/1024px-Land_Rover_logo_black.svg.png" alt="Land Rover">
         </div>
     </div>
 </div>
 
 <footer>
-    <p>HY CAR © 2025 — Location premium | Haytam & Yassmin | <i class="fab fa-whatsapp"></i> Réservation directe</p>
+    <p>HY CAR © 2025 — by Haytam & Yassmin | <i class="fab fa-whatsapp"></i> Réservation instantanée | <i class="fas fa-shield-alt"></i> Sécurité & confiance</p>
 </footer>
 
-<!-- Modal -->
 <div id="bookingModal" class="modal">
     <div class="modal-content">
         <span class="close-modal">&times;</span>
-        <h3 style="margin-bottom: 1rem;">📄 Réservation</h3>
+        <h3 style="margin-bottom: 1.2rem; color:#2d7aff;">📄 Réservation express</h3>
         <form id="bookingForm">
             <input type="hidden" id="carId">
-            <div class="form-group"><label>Voiture</label><input type="text" id="modalCarName" readonly></div>
-            <div class="form-group"><label>Nom complet</label><input type="text" id="customerName" required></div>
-            <div class="form-group"><label>WhatsApp</label><input type="tel" id="customerPhone" required placeholder="+212 6XXXXXXXX"></div>
-            <div class="form-group"><label>Début</label><input type="date" id="startDate" required></div>
-            <div class="form-group"><label>Fin</label><input type="date" id="endDate" required></div>
+            <div class="form-group"><label>🚗 Véhicule</label><input type="text" id="modalCarName" readonly></div>
+            <div class="form-group"><label>👤 Nom complet</label><input type="text" id="customerName" required placeholder="Haytam / Yassmin"></div>
+            <div class="form-group"><label>📞 WhatsApp</label><input type="tel" id="customerPhone" required placeholder="+212 6XX XXX XXX"></div>
+            <div class="form-group"><label>📅 Début location</label><input type="date" id="startDate" required></div>
+            <div class="form-group"><label>📅 Fin location</label><input type="date" id="endDate" required></div>
             <button type="submit" class="submit-booking"><i class="fab fa-whatsapp"></i> Confirmer & WhatsApp</button>
         </form>
     </div>
 </div>
 
 <script>
-    // ========= LES VOITURES (CELLES DEMANDÉES) =========
+    // ========= LES VOITURES =========
     const cars = [
         { id: 1, name: "RANGE ROVER SPORT", type: "Luxe", pricePerDay: 2200, image: "https://media.production.jlrms.com/styles/thumbnail_big/s3/2020-07-14/image/3a524bd8-34d7-40f0-a547-b4f8fc4b8bdb/RRS_21MY_HSE_DYN_BLACK_150720_01.jpg?VersionId=UhbVhFfH7IKguwjb6EdnV7VUTXRS8P8W&h=b88da0f1&itok=xyCkVAC-", fuel: "Diesel", seats: 5 },
         { id: 2, name: "AUDI Q8", type: "Luxe", pricePerDay: 1900, image: "https://m.atcdn.co.uk/vms/media/0d7c8f9e7fb1449d87293de87aa17d57.jpg", fuel: "Essence", seats: 5 },
@@ -385,22 +423,20 @@
         { id: 6, name: "BMW SERIE 5", type: "Luxe", pricePerDay: 1300, image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/BMW_G60_520d_IAA_2023_1X7A0757.jpg/960px-BMW_G60_520d_IAA_2023_1X7A0757.jpg", fuel: "Essence", seats: 5 }
     ];
 
-    // Gestion WhatsApp
     function sendWhatsApp(booking) {
         let phone = booking.customerPhone.replace(/\D/g, '');
         if (!phone.startsWith('212')) phone = '212' + phone.replace(/^0+/, '');
-        const msg = `Bonjour HY CAR! 👋\nNouvelle réservation :\n🚗 ${booking.carName}\n📅 Du ${booking.startDate} au ${booking.endDate} (${booking.totalDays}j)\n💰 Total: ${booking.totalPrice} DH\n👤 ${booking.customerName}\n📞 ${booking.customerPhone}\nMerci de confirmer.`;
+        const msg = `Bonjour HY CAR! 👋\n📍 Nouvelle réservation :\n🚗 ${booking.carName}\n📅 Du ${booking.startDate} au ${booking.endDate} (${booking.totalDays}j)\n💰 Total: ${booking.totalPrice} DH\n👤 ${booking.customerName}\n📞 ${booking.customerPhone}\nMerci de confirmer.`;
         window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
     }
 
-    // Rendu des voitures
     function renderCars(search = "") {
         let filtered = cars.filter(c => c.name.toLowerCase().includes(search.toLowerCase()));
         const grid = document.getElementById("carsGrid");
         const countSpan = document.getElementById("carsCount");
         countSpan.innerText = filtered.length + " modèle" + (filtered.length > 1 ? "s" : "");
         if(filtered.length === 0){
-            grid.innerHTML = "<p style='text-align:center; grid-column:1/-1;'>Aucune voiture trouvée</p>";
+            grid.innerHTML = "<p style='text-align:center; grid-column:1/-1; padding:2rem;'>Aucune voiture trouvée</p>";
             return;
         }
         grid.innerHTML = filtered.map(car => `
@@ -416,7 +452,7 @@
                         <span><i class="fas fa-cog"></i> Auto</span>
                     </div>
                     <div class="price">${car.pricePerDay} <span>DH/jour</span></div>
-                    <button class="book-btn" data-id="${car.id}" data-name="${car.name}" data-price="${car.pricePerDay}">📅 Réserver</button>
+                    <button class="book-btn" data-id="${car.id}" data-name="${car.name}" data-price="${car.pricePerDay}"><i class="fas fa-calendar-check"></i> Réserver</button>
                 </div>
             </div>
         `).join('');
@@ -462,10 +498,7 @@
         closeModal();
     });
 
-    document.getElementById("searchInput").addEventListener("input", (e) => {
-        renderCars(e.target.value);
-    });
-
+    document.getElementById("searchInput").addEventListener("input", (e) => { renderCars(e.target.value); });
     document.querySelector(".close-modal").addEventListener("click", closeModal);
     window.onclick = (e) => { if(e.target === document.getElementById("bookingModal")) closeModal(); };
 
@@ -473,10 +506,10 @@
     document.getElementById("startDate").min = tomorrow.toISOString().split('T')[0];
     document.getElementById("endDate").min = tomorrow.toISOString().split('T')[0];
 
-    // Dupliquer les logos pour effet infini
+    // Slider infini
     const slider = document.getElementById("logoSlider");
     const logos = slider.innerHTML;
-    slider.innerHTML = logos + logos; // double pour continuité
+    slider.innerHTML = logos + logos;
 
     renderCars("");
 </script>
