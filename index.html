@@ -3,13 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>HY CAR | Location de Voitures</title>
+    <title>HY CAR | Location de Voitures Premium</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Location de voitures premium au Maroc par Haytam & Yassmin. Flotte de véhicules luxueux: Range Rover, Audi Q8, BMW.">
+    <meta name="keywords" content="location voiture Maroc, location voiture Casablanca, location voiture Rabat, voiture premium">
+    <meta name="author" content="HY CAR by Haytam & Yassmin">
+    <meta name="robots" content="index, follow">
     
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100' height='100' fill='%231a1a2e'/%3E%3Ctext x='50' y='72' font-size='70' text-anchor='middle' fill='%232d7aff'%3E🚗%3C/text%3E%3C/svg%3E">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <style>
         * {
             margin: 0;
@@ -19,12 +26,128 @@
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background: #0a0a0f;
-            color: #fff;
+            transition: background-color 0.3s ease, color 0.3s ease;
             overflow-x: hidden;
         }
 
-        /* ========== LANDING PAGE (EXACTEMENT COMME AVANT) ========== */
+        /* ========== THEMES ========== */
+        body.dark {
+            background: #0a0a0f;
+            color: #fff;
+        }
+
+        body.light {
+            background: #f5f5f5;
+            color: #1a1a1a;
+        }
+
+        /* Dark mode specific */
+        body.dark .sidebar,
+        body.dark .car-card,
+        body.dark .review-card,
+        body.dark .modal-content,
+        body.dark .header {
+            background: #111118;
+            border-color: #1f1f2a;
+        }
+
+        body.dark .btn-book {
+            background: #1a1a24;
+            border-color: #2a2a35;
+            color: #fff;
+        }
+
+        body.dark .search-input,
+        body.dark .form-group input {
+            background: #1a1a24;
+            border-color: #2a2a35;
+            color: #fff;
+        }
+
+        /* Light mode specific */
+        body.light .sidebar,
+        body.light .car-card,
+        body.light .review-card,
+        body.light .modal-content,
+        body.light .header {
+            background: #ffffff;
+            border-color: #e0e0e0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        body.light .btn-book {
+            background: #f0f0f0;
+            border-color: #ddd;
+            color: #1a1a1a;
+        }
+
+        body.light .btn-book:hover {
+            background: #2d7aff;
+            color: white;
+        }
+
+        body.light .search-input,
+        body.light .form-group input {
+            background: #ffffff;
+            border-color: #ddd;
+            color: #1a1a1a;
+        }
+
+        body.light .info-item {
+            color: #555;
+        }
+
+        body.light .car-specs {
+            color: #777;
+        }
+
+        body.light .review-text {
+            color: #555;
+        }
+
+        body.light .partners {
+            background: #eeeeee;
+            border-color: #ddd;
+        }
+
+        body.light footer {
+            color: #999;
+        }
+
+        /* Theme toggle button - icon only */
+        .theme-toggle {
+            background: rgba(45,122,255,0.15);
+            border: 1px solid rgba(45,122,255,0.3);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.2s;
+            margin-left: auto;
+        }
+
+        body.dark .theme-toggle {
+            background: rgba(45,122,255,0.2);
+            color: #fff;
+        }
+
+        body.light .theme-toggle {
+            background: #e0e0e0;
+            color: #1a1a1a;
+            border-color: #ccc;
+        }
+
+        .theme-toggle:hover {
+            background: #2d7aff;
+            color: white;
+            border-color: #2d7aff;
+        }
+
+        /* ========== LANDING PAGE ========== */
         .landing {
             height: 100vh;
             width: 100%;
@@ -105,23 +228,32 @@
             transform: scale(1.02);
         }
 
-        /* ========== PAGE PRINCIPALE ========== */
+        /* ========== MAIN PAGE ========== */
         .main-page {
             display: none;
-            background: #0a0a0f;
             min-height: 100vh;
             width: 100%;
         }
 
-        /* Header */
+        /* Header avec logo au centre - plus élégant */
         .header {
-            background: rgba(10,10,15,0.95);
-            backdrop-filter: blur(10px);
-            padding: 0.7rem 2rem;
+            padding: 0.8rem 2rem;
             position: sticky;
             top: 0;
             z-index: 100;
+            transition: all 0.3s ease;
+        }
+
+        body.dark .header {
+            background: rgba(10,10,15,0.95);
+            backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(45,122,255,0.2);
+        }
+
+        body.light .header {
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e0e0e0;
         }
 
         .header-inner {
@@ -130,19 +262,41 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative;
         }
 
-        .logo-small h2 {
-            font-size: 1.6rem;
+        .logo-center {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+        }
+
+        .logo-center h2 {
+            font-size: 2rem;
             font-weight: 800;
-            letter-spacing: -1px;
+            letter-spacing: -2px;
+            background: linear-gradient(135deg, #ffffff, #2d7aff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
-        .logo-small .hy { color: #fff; }
-        .logo-small .car { color: #2d7aff; }
-        .logo-small small { font-size: 0.55rem; color: #777; display: block; }
+        body.light .logo-center h2 {
+            background: linear-gradient(135deg, #1a1a1a, #2d7aff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
 
-        /* Layout */
+        .logo-center small {
+            font-size: 0.6rem;
+            letter-spacing: 2px;
+            display: block;
+        }
+        body.dark .logo-center small { color: #888; }
+        body.light .logo-center small { color: #999; }
+
         .dashboard {
             max-width: 1400px;
             margin: 1.5rem auto;
@@ -151,17 +305,15 @@
             gap: 2rem;
         }
 
-        /* Sidebar */
         .sidebar {
             width: 280px;
             flex-shrink: 0;
-            background: #111118;
             border-radius: 20px;
             padding: 1.2rem;
             position: sticky;
             top: 80px;
             height: fit-content;
-            border: 1px solid #1f1f2a;
+            transition: all 0.3s ease;
         }
 
         .sidebar-title {
@@ -177,17 +329,10 @@
         .search-input {
             width: 100%;
             padding: 0.7rem 1rem;
-            background: #1a1a24;
-            border: 1px solid #2a2a35;
             border-radius: 12px;
-            color: #fff;
             outline: none;
-            margin-bottom: 1.2rem;
             font-size: 0.85rem;
-        }
-
-        .search-input:focus {
-            border-color: #2d7aff;
+            transition: all 0.2s;
         }
 
         .map-box {
@@ -204,8 +349,10 @@
         .info-box {
             margin-top: 1.2rem;
             padding-top: 1.2rem;
-            border-top: 1px solid #1f1f2a;
+            border-top: 1px solid;
         }
+        body.dark .info-box { border-top-color: #1f1f2a; }
+        body.light .info-box { border-top-color: #e0e0e0; }
 
         .info-item {
             display: flex;
@@ -213,7 +360,6 @@
             gap: 10px;
             margin-bottom: 0.7rem;
             font-size: 0.8rem;
-            color: #ccc;
         }
 
         .info-item i {
@@ -226,7 +372,6 @@
             text-decoration: none;
         }
 
-        /* Cars container */
         .cars-container {
             flex: 1;
         }
@@ -257,17 +402,16 @@
         }
 
         .car-card {
-            background: #111118;
             border-radius: 18px;
             overflow: hidden;
             transition: all 0.3s;
-            border: 1px solid #1f1f2a;
         }
 
         .car-card:hover {
             transform: translateY(-3px);
-            border-color: #2d7aff;
         }
+        body.dark .car-card:hover { border-color: #2d7aff; }
+        body.light .car-card:hover { border-color: #2d7aff; box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
 
         .car-image {
             height: 170px;
@@ -286,6 +430,7 @@
             border-radius: 20px;
             font-size: 0.65rem;
             font-weight: 600;
+            color: white;
         }
 
         .car-details {
@@ -303,7 +448,6 @@
             gap: 0.8rem;
             margin: 0.5rem 0;
             font-size: 0.65rem;
-            color: #999;
         }
 
         .car-specs i {
@@ -320,18 +464,17 @@
         .car-price span {
             font-size: 0.65rem;
             font-weight: normal;
-            color: #999;
         }
+        body.dark .car-price span { color: #999; }
+        body.light .car-price span { color: #888; }
 
         .btn-book {
             width: 100%;
-            background: #1a1a24;
-            border: 1px solid #2a2a35;
+            border: 1px solid;
             padding: 0.6rem;
             border-radius: 40px;
             font-weight: 600;
             font-size: 0.8rem;
-            color: #fff;
             cursor: pointer;
             transition: all 0.2s;
         }
@@ -339,9 +482,9 @@
         .btn-book:hover {
             background: #2d7aff;
             border-color: #2d7aff;
+            color: white !important;
         }
 
-        /* Reviews */
         .reviews-wrapper {
             margin-top: 2rem;
         }
@@ -370,10 +513,9 @@
         }
 
         .review-card {
-            background: #111118;
             border-radius: 14px;
             padding: 0.9rem;
-            border: 1px solid #1f1f2a;
+            transition: all 0.2s;
         }
 
         .review-header {
@@ -393,6 +535,7 @@
             justify-content: center;
             font-weight: bold;
             font-size: 0.9rem;
+            color: white;
         }
 
         .review-info {
@@ -413,49 +556,75 @@
         .review-text {
             font-size: 0.75rem;
             line-height: 1.4;
-            color: #bbb;
         }
 
-        /* Partners */
+        /* Partners with car logos */
         .partners {
-            background: #0d0d12;
-            border-top: 1px solid #1f1f2a;
-            border-bottom: 1px solid #1f1f2a;
-            padding: 1rem 0;
+            border-top: 1px solid;
+            border-bottom: 1px solid;
+            padding: 1.5rem 0;
             margin-top: 2rem;
+        }
+        body.dark .partners {
+            border-color: #1f1f2a;
+            background: #0d0d12;
+        }
+        body.light .partners {
+            border-color: #e0e0e0;
+            background: #f0f0f0;
         }
 
         .partners h4 {
             text-align: center;
-            font-size: 0.7rem;
-            color: #777;
+            font-size: 0.8rem;
             letter-spacing: 2px;
-            margin-bottom: 0.8rem;
+            margin-bottom: 1.2rem;
         }
+        body.dark .partners h4 { color: #aaa; }
+        body.light .partners h4 { color: #888; }
 
         .logos-container {
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            gap: 1.5rem;
             flex-wrap: wrap;
+            align-items: center;
         }
 
-        .logos-container i {
-            font-size: 1.5rem;
-            color: #555;
-            transition: 0.2s;
+        .logos-container img {
+            height: 35px;
+            width: auto;
+            opacity: 0.7;
+            transition: all 0.2s;
         }
 
-        .logos-container i:hover {
-            color: #2d7aff;
+        body.dark .logos-container img {
+            filter: brightness(0) invert(0.7);
+        }
+
+        body.light .logos-container img {
+            filter: brightness(0.3) invert(0);
+            opacity: 0.6;
+        }
+
+        .logos-container img:hover {
+            opacity: 1;
+            filter: brightness(0) invert(0);
+            transform: scale(1.05);
+        }
+
+        body.light .logos-container img:hover {
+            filter: brightness(0) invert(0);
+            opacity: 1;
         }
 
         footer {
             text-align: center;
             padding: 1rem;
             font-size: 0.65rem;
-            color: #666;
         }
+        body.dark footer { color: #666; }
+        body.light footer { color: #aaa; }
 
         /* Modal */
         .modal {
@@ -473,13 +642,14 @@
         }
 
         .modal-content {
-            background: #111118;
             max-width: 400px;
             width: 90%;
             border-radius: 20px;
             padding: 1.5rem;
-            border: 1px solid #2d7aff;
+            transition: all 0.3s ease;
         }
+        body.dark .modal-content { border: 1px solid #2d7aff; }
+        body.light .modal-content { border: 1px solid #2d7aff; }
 
         .modal-header {
             display: flex;
@@ -493,10 +663,7 @@
             cursor: pointer;
             transition: 0.2s;
         }
-
-        .close-modal:hover {
-            color: #2d7aff;
-        }
+        .close-modal:hover { color: #2d7aff; }
 
         .form-group {
             margin-bottom: 0.8rem;
@@ -506,22 +673,16 @@
             display: block;
             font-size: 0.7rem;
             margin-bottom: 0.2rem;
-            color: #aaa;
         }
+        body.dark .form-group label { color: #aaa; }
+        body.light .form-group label { color: #666; }
 
         .form-group input {
             width: 100%;
             padding: 0.6rem;
-            background: #1a1a24;
-            border: 1px solid #2a2a35;
             border-radius: 10px;
-            color: #fff;
             outline: none;
             font-size: 0.85rem;
-        }
-
-        .form-group input:focus {
-            border-color: #2d7aff;
         }
 
         .btn-submit {
@@ -544,302 +705,350 @@
                 width: 100%;
                 position: static;
             }
-            .cars-grid {
-                grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            }
-            .reviews-grid {
-                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            .logo-center h2 {
+                font-size: 1.3rem;
             }
             .landing h2 {
                 font-size: 1.6rem;
             }
             .logo-landing h1 {
-                font-size: 3.5rem;
+                font-size: 3rem;
+            }
+            .logos-container img {
+                height: 25px;
+            }
+            .logos-container {
+                gap: 0.8rem;
             }
         }
     </style>
 </head>
-<body>
-
-<!-- PAGE LANDING (EXACTEMENT COMME AVANT) -->
-<div id="landingPage" class="landing">
-    <div class="landing-content">
-        <div class="logo-landing">
-            <h1><span>HY</span><span>CAR</span></h1>
-            <div class="sub">BY HAYTAM & YASSMIN</div>
-        </div>
-        <h2>L'élégance <span>sur mesure</span></h2>
-        <p>Découvrez notre flotte de véhicules premium. Réservation simple, rapide et livraison gratuite.</p>
-        <button id="goToMain" class="btn-landing">
-            <i class="fas fa-calendar-check"></i> Réserver maintenant
-        </button>
-    </div>
-</div>
-
-<!-- PAGE PRINCIPALE -->
-<div id="mainPage" class="main-page">
-    <div class="header">
-        <div class="header-inner">
-            <div class="logo-small">
-                <h2><span class="hy">HY</span><span class="car">CAR</span></h2>
-                <small>Premium car rental</small>
+<body class="dark">
+    <!-- PAGE LANDING -->
+    <div id="landingPage" class="landing">
+        <div class="landing-content">
+            <div class="logo-landing">
+                <h1><span>HY</span><span>CAR</span></h1>
+                <div class="sub">BY HAYTAM & YASSMIN</div>
             </div>
-        </div>
-    </div>
-
-    <div class="dashboard">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <div class="sidebar-title"><i class="fas fa-search"></i> Recherche</div>
-            <input type="text" id="searchInput" class="search-input" placeholder="Rechercher une voiture...">
-
-            <div class="map-box">
-                <div class="sidebar-title"><i class="fas fa-map-marker-alt"></i> Notre agence</div>
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13224.944130751724!2d-6.8071042!3d34.0614681!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda76bb210205a7f%3A0x252e909f921ba17c!2sHycar%20location%20de%20voiture%20sal%C3%A9!5e0!3m2!1sfr!2sma!4v1710000000000!5m2!1sfr!2sma" 
-                    height="160" 
-                    style="border:0; width:100%; border-radius:14px;" 
-                    allowfullscreen="" 
-                    loading="lazy">
-                </iframe>
-            </div>
-
-            <div class="info-box">
-                <div class="sidebar-title"><i class="fas fa-phone-alt"></i> Contact</div>
-                <div class="info-item"><i class="fab fa-whatsapp"></i> <a href="https://wa.me/212661081476" target="_blank">+212 661 081 476</a></div>
-                <div class="info-item"><i class="fas fa-envelope"></i> hycar.ma@gmail.com</div>
-                <div class="info-item"><i class="fas fa-clock"></i> Lun-Sam : 09h - 19h</div>
-            </div>
-        </aside>
-
-        <!-- Contenu principal -->
-        <div class="cars-container">
-            <div class="cars-header">
-                <h2>🚘 Nos véhicules</h2>
-                <div class="cars-count" id="carsCount">0 modèles</div>
-            </div>
-            <div class="cars-grid" id="carsGrid"></div>
-
-            <!-- Avis Google -->
-            <div class="reviews-wrapper">
-                <div class="reviews-title">
-                    <i class="fab fa-google"></i>
-                    <h3>Ce que nos clients disent sur Google</h3>
-                </div>
-                <div class="reviews-grid" id="reviewsGrid"></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Partenaires -->
-    <div class="partners">
-        <h4><i class="fas fa-handshake"></i> NOS PARTENAIRES</h4>
-        <div class="logos-container">
-            <i class="fas fa-car"></i>
-            <i class="fas fa-truck"></i>
-            <i class="fas fa-car-side"></i>
-            <i class="fas fa-gas-pump"></i>
-            <i class="fas fa-caravan"></i>
-            <i class="fas fa-shield-alt"></i>
-        </div>
-    </div>
-    <footer>
-        <p>HY CAR © 2025 — Location de confiance | by Haytam & Yassmin</p>
-    </footer>
-</div>
-
-<!-- MODAL -->
-<div id="bookingModal" class="modal">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h3 style="color:#2d7aff; font-size:1.1rem;">📄 Nouvelle réservation</h3>
-            <span class="close-modal">&times;</span>
-        </div>
-        <form id="bookingForm">
-            <input type="hidden" id="carId">
-            <div class="form-group">
-                <label>Véhicule</label>
-                <input type="text" id="modalCarName" readonly>
-            </div>
-            <div class="form-group">
-                <label>Nom complet</label>
-                <input type="text" id="customerName" required>
-            </div>
-            <div class="form-group">
-                <label>Téléphone WhatsApp</label>
-                <input type="tel" id="customerPhone" required placeholder="+212 6XX XXX XXX">
-            </div>
-            <div class="form-group">
-                <label>Date de début</label>
-                <input type="date" id="startDate" required>
-            </div>
-            <div class="form-group">
-                <label>Date de fin</label>
-                <input type="date" id="endDate" required>
-            </div>
-            <button type="submit" class="btn-submit">
-                <i class="fab fa-whatsapp"></i> Confirmer & WhatsApp
+            <h2>L'élégance <span>sur mesure</span></h2>
+            <p>Découvrez notre flotte de véhicules premium. Réservation simple, rapide et livraison gratuite.</p>
+            <button id="goToMain" class="btn-landing">
+                <i class="fas fa-gem"></i> Découvrez nos merveilles
             </button>
-        </form>
+        </div>
     </div>
-</div>
 
-<script>
-    // Voitures
-    const cars = [
-        { id: 1, name: "RANGE ROVER SPORT", type: "Premium", price: 2200, image: "https://media.production.jlrms.com/styles/thumbnail_big/s3/2020-07-14/image/3a524bd8-34d7-40f0-a547-b4f8fc4b8bdb/RRS_21MY_HSE_DYN_BLACK_150720_01.jpg", fuel: "Diesel", seats: 5 },
-        { id: 2, name: "AUDI Q8", type: "Premium", price: 1900, image: "https://m.atcdn.co.uk/vms/media/0d7c8f9e7fb1449d87293de87aa17d57.jpg", fuel: "Essence", seats: 5 },
-        { id: 3, name: "Hyundai Tucson", type: "SUV", price: 750, image: "https://autogiz.com/product_images/webp/2025-tucson-phev-limited-awd-cashmere-bronze-hero-1_Browse_1.webp", fuel: "Hybride", seats: 5 },
-        { id: 4, name: "Volkswagen Touareg", type: "SUV", price: 1100, image: "https://r-media.volkswagen.com/persisted/72d2d8e4-6063-4fad-a81f-5beccbf434d0/0.0.0/vehicle-mbt/760-2026-MYU/v1_5d4923c1be4a7a1aa81698d4849efb143697af25727a0c47fd8b9586e05f185e/custturntable4/df081e1b9a22aabf6a22ff62efcbacf2.png", fuel: "Diesel", seats: 5 },
-        { id: 5, name: "Mercedes Vito", type: "Utilitaire", price: 850, image: "https://images.autouncle.com/da/car_images/eb7c7b68-a877-4ee6-8bff-f33ba145a125_2019-mercedes-vito-163.jpg", fuel: "Diesel", seats: 8 },
-        { id: 6, name: "BMW SERIE 5", type: "Premium", price: 1300, image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/BMW_G60_520d_IAA_2023_1X7A0757.jpg/960px-BMW_G60_520d_IAA_2023_1X7A0757.jpg", fuel: "Essence", seats: 5 }
-    ];
-
-    // Avis
-    const reviews = [
-        { name: "Hamza Brhich", text: "Very good experience with this car rental bureau. Professional staff, clean car.", rating: 5 },
-        { name: "Aymane Gadaan", text: "Location conforme à la description, propre et bien équipée. Service de qualité.", rating: 5 },
-        { name: "Hmid Hamid", text: "Great service", rating: 5 },
-        { name: "Hicham Maouhoub", text: "Merci pour votre service, voiture neuve", rating: 5 },
-        { name: "Nawfel Hajjar", text: "Bonne service merci", rating: 5 },
-        { name: "Sm Dabachi", text: "شكراً على تعاملكم الراقي", rating: 5 },
-        { name: "Lahcen Moari", text: "أحسن تعامل شكرا جزيلا", rating: 5 },
-        { name: "Reda Ellaroui", text: "Good service", rating: 5 }
-    ];
-
-    const AGENCY_WHATSAPP = "212661081476";
-
-    function renderCars(search = "") {
-        let filtered = cars.filter(c => c.name.toLowerCase().includes(search.toLowerCase()));
-        const grid = document.getElementById("carsGrid");
-        const countSpan = document.getElementById("carsCount");
-        countSpan.innerText = filtered.length + " modèle" + (filtered.length > 1 ? "s" : "");
-        
-        if(filtered.length === 0) {
-            grid.innerHTML = "<p style='text-align:center; grid-column:1/-1;'>Aucune voiture trouvée</p>";
-            return;
-        }
-        
-        grid.innerHTML = filtered.map(car => `
-            <div class="car-card">
-                <div class="car-image" style="background-image: url('${car.image}'); background-size: cover; background-position: center;">
-                    <div class="car-badge">${car.type}</div>
+    <!-- PAGE PRINCIPALE -->
+    <div id="mainPage" class="main-page">
+        <div class="header">
+            <div class="header-inner">
+                <div class="logo-center">
+                    <h2><span class="hy">HY</span><span class="car">CAR</span></h2>
+                    <small>PREMIUM CAR RENTAL</small>
                 </div>
-                <div class="car-details">
-                    <div class="car-name">${car.name}</div>
-                    <div class="car-specs">
-                        <span><i class="fas fa-gas-pump"></i> ${car.fuel}</span>
-                        <span><i class="fas fa-users"></i> ${car.seats} places</span>
-                        <span><i class="fas fa-cog"></i> Auto</span>
+                <button id="themeToggle" class="theme-toggle">
+                    <i class="fas fa-sun"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="dashboard">
+            <aside class="sidebar">
+                <div class="sidebar-title"><i class="fas fa-search"></i> Recherche</div>
+                <input type="text" id="searchInput" class="search-input" placeholder="Rechercher une voiture...">
+
+                <div class="map-box">
+                    <div class="sidebar-title"><i class="fas fa-map-marker-alt"></i> Notre agence</div>
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13224.944130751724!2d-6.8071042!3d34.0614681!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda76bb210205a7f%3A0x252e909f921ba17c!2sHycar%20location%20de%20voiture%20sal%C3%A9!5e0!3m2!1sfr!2sma!4v1710000000000!5m2!1sfr!2sma" 
+                        height="160" 
+                        style="border:0; width:100%; border-radius:14px;" 
+                        allowfullscreen="" 
+                        loading="lazy"
+                        title="HY CAR Location de voitures Salé">
+                    </iframe>
+                </div>
+
+                <div class="info-box">
+                    <div class="sidebar-title"><i class="fas fa-phone-alt"></i> Contact</div>
+                    <div class="info-item"><i class="fab fa-whatsapp"></i> <a href="https://wa.me/212661081476" target="_blank" rel="noopener noreferrer">+212 661 081 476</a></div>
+                    <div class="info-item"><i class="fas fa-envelope"></i> hycar.ma@gmail.com</div>
+                    <div class="info-item"><i class="fas fa-clock"></i> Lun-Sam : 09h - 19h</div>
+                </div>
+            </aside>
+
+            <div class="cars-container">
+                <div class="cars-header">
+                    <h2>🚘 Nos véhicules</h2>
+                    <div class="cars-count" id="carsCount">0 modèles</div>
+                </div>
+                <div class="cars-grid" id="carsGrid"></div>
+
+                <div class="reviews-wrapper">
+                    <div class="reviews-title">
+                        <i class="fab fa-google"></i>
+                        <h3>Ce que nos clients disent sur Google</h3>
                     </div>
-                    <div class="car-price">${car.price} <span>DH/jour</span></div>
-                    <button class="btn-book" data-id="${car.id}" data-name="${car.name}" data-price="${car.price}">Réserver</button>
+                    <div class="reviews-grid" id="reviewsGrid"></div>
                 </div>
             </div>
-        `).join('');
-        
-        document.querySelectorAll('.btn-book').forEach(btn => {
-            btn.addEventListener('click', () => {
-                openModal(parseInt(btn.dataset.id), btn.dataset.name, parseInt(btn.dataset.price));
-            });
-        });
-    }
+        </div>
 
-    function renderReviews() {
-        const container = document.getElementById("reviewsGrid");
-        if(!container) return;
-        
-        container.innerHTML = reviews.map(rev => {
-            const initial = rev.name.charAt(0);
-            return `
-                <div class="review-card">
-                    <div class="review-header">
-                        <div class="review-avatar">${initial}</div>
-                        <div class="review-info">
-                            <div class="review-name">${rev.name}</div>
-                            <div class="review-stars">${'★'.repeat(rev.rating)}${'☆'.repeat(5-rev.rating)}</div>
-                        </div>
-                    </div>
-                    <div class="review-text">"${rev.text.length > 100 ? rev.text.substring(0,100)+'...' : rev.text}"</div>
+        <!-- Partenaires avec les logos SVG -->
+        <div class="partners">
+            <h4><i class="fas fa-handshake"></i> NOS PARTENAIRES CONSTRUCTEURS</h4>
+            <div class="logos-container" id="logosContainer"></div>
+        </div>
+        <footer>
+            <p>HY CAR © 2025 — Location de confiance | by Haytam & Yassmin | Location voiture Maroc</p>
+        </footer>
+    </div>
+
+    <!-- MODAL (sans champ téléphone) -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 style="color:#2d7aff; font-size:1.1rem;">📄 Nouvelle réservation</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <form id="bookingForm">
+                <input type="hidden" id="carId">
+                <div class="form-group">
+                    <label>Véhicule</label>
+                    <input type="text" id="modalCarName" readonly>
                 </div>
-            `;
-        }).join('');
-    }
+                <div class="form-group">
+                    <label>Nom complet</label>
+                    <input type="text" id="customerName" required placeholder="Votre nom complet">
+                </div>
+                <div class="form-group">
+                    <label>Date de début</label>
+                    <input type="date" id="startDate" required>
+                </div>
+                <div class="form-group">
+                    <label>Date de fin</label>
+                    <input type="date" id="endDate" required>
+                </div>
+                <button type="submit" class="btn-submit">
+                    <i class="fab fa-whatsapp"></i> Confirmer & WhatsApp
+                </button>
+            </form>
+        </div>
+    </div>
 
-    function openModal(id, name, price) {
-        document.getElementById("carId").value = id;
-        document.getElementById("modalCarName").value = name;
-        const tomorrow = new Date(); tomorrow.setDate(tomorrow.getDate()+1);
-        const later = new Date(); later.setDate(later.getDate()+3);
-        document.getElementById("startDate").value = tomorrow.toISOString().split('T')[0];
-        document.getElementById("endDate").value = later.toISOString().split('T')[0];
-        document.getElementById("customerName").value = "";
-        document.getElementById("customerPhone").value = "";
-        document.getElementById("bookingModal").style.display = "flex";
-    }
+    <script>
+        // Liste des logos SVG (nouveaux liens)
+        const carLogos = [
+            { name: "BMW", url: "https://www.svgrepo.com/show/330076/bmw.svg" },
+            { name: "Mercedes", url: "https://www.svgrepo.com/show/446900/mercedes-benz-alt.svg" },
+            { name: "Hyundai", url: "https://www.svgrepo.com/show/306214/hyundai.svg" },
+            { name: "Renault", url: "https://www.svgrepo.com/show/446916/renault-alt.svg" },
+            { name: "Dacia", url: "https://www.svgrepo.com/show/446949/dacia.svg" },
+            { name: "Citroën", url: "https://www.svgrepo.com/show/305860/citroen.svg" },
+            { name: "Audi", url: "https://www.svgrepo.com/show/446942/audi.svg" },
+            { name: "Land Rover", url: "https://www.svgrepo.com/show/330818/landrover.svg" },
+            { name: "Peugeot", url: "https://www.svgrepo.com/show/446909/peugeot-alt.svg" },
+            { name: "Fiat", url: "https://www.svgrepo.com/show/446871/fiat.svg" },
+            { name: "Ford", url: "https://www.svgrepo.com/show/446869/ford.svg" },
+            { name: "Nissan", url: "https://www.svgrepo.com/show/446904/nissan.svg" },
+            { name: "Mini", url: "https://www.svgrepo.com/show/303478/bmw-mini-1-logo.svg" },
+            { name: "Toyota", url: "https://www.svgrepo.com/show/446931/toyota.svg" },
+            { name: "Jaguar", url: "https://www.svgrepo.com/show/330723/jaguar.svg" },
+            { name: "Honda", url: "https://www.svgrepo.com/show/306198/honda.svg" }
+        ];
 
-    function closeModal() {
-        document.getElementById("bookingModal").style.display = "none";
-    }
+        // Voitures
+        const cars = [
+            { id: 1, name: "RANGE ROVER SPORT", type: "Premium", price: 2200, image: "https://media.production.jlrms.com/styles/thumbnail_big/s3/2020-07-14/image/3a524bd8-34d7-40f0-a547-b4f8fc4b8bdb/RRS_21MY_HSE_DYN_BLACK_150720_01.jpg", fuel: "Diesel", seats: 5 },
+            { id: 2, name: "AUDI Q8", type: "Premium", price: 1900, image: "https://m.atcdn.co.uk/vms/media/0d7c8f9e7fb1449d87293de87aa17d57.jpg", fuel: "Essence", seats: 5 },
+            { id: 3, name: "Hyundai Tucson", type: "SUV", price: 750, image: "https://autogiz.com/product_images/webp/2025-tucson-phev-limited-awd-cashmere-bronze-hero-1_Browse_1.webp", fuel: "Hybride", seats: 5 },
+            { id: 4, name: "Volkswagen Touareg", type: "SUV", price: 1100, image: "https://r-media.volkswagen.com/persisted/72d2d8e4-6063-4fad-a81f-5beccbf434d0/0.0.0/vehicle-mbt/760-2026-MYU/v1_5d4923c1be4a7a1aa81698d4849efb143697af25727a0c47fd8b9586e05f185e/custturntable4/df081e1b9a22aabf6a22ff62efcbacf2.png", fuel: "Diesel", seats: 5 },
+            { id: 5, name: "Mercedes Vito", type: "Utilitaire", price: 850, image: "https://images.autouncle.com/da/car_images/eb7c7b68-a877-4ee6-8bff-f33ba145a125_2019-mercedes-vito-163.jpg", fuel: "Diesel", seats: 8 },
+            { id: 6, name: "BMW SERIE 5", type: "Premium", price: 1300, image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/BMW_G60_520d_IAA_2023_1X7A0757.jpg/960px-BMW_G60_520d_IAA_2023_1X7A0757.jpg", fuel: "Essence", seats: 5 }
+        ];
 
-    // Transition landing -> main
-    document.getElementById("goToMain").addEventListener("click", () => {
-        document.getElementById("landingPage").classList.add("hide");
-        setTimeout(() => {
-            document.getElementById("landingPage").style.display = "none";
-            document.getElementById("mainPage").style.display = "block";
-            renderCars("");
-            renderReviews();
-        }, 500);
-    });
+        const reviews = [
+            { name: "Hamza Brhich", text: "Very good experience with this car rental bureau. Professional staff, clean car.", rating: 5 },
+            { name: "Aymane Gadaan", text: "Location conforme à la description, propre et bien équipée. Service de qualité.", rating: 5 },
+            { name: "Hmid Hamid", text: "Great service", rating: 5 },
+            { name: "Hicham Maouhoub", text: "Merci pour votre service, voiture neuve", rating: 5 },
+            { name: "Nawfel Hajjar", text: "Bonne service merci", rating: 5 },
+            { name: "Sm Dabachi", text: "شكراً على تعاملكم الراقي", rating: 5 },
+            { name: "Lahcen Moari", text: "أحسن تعامل شكرا جزيلا", rating: 5 },
+            { name: "Reda Ellaroui", text: "Good service", rating: 5 }
+        ];
 
-    document.getElementById("bookingForm").addEventListener("submit", (e) => {
-        e.preventDefault();
-        const carId = parseInt(document.getElementById("carId").value);
-        const carName = document.getElementById("modalCarName").value;
-        const customerName = document.getElementById("customerName").value.trim();
-        const customerPhone = document.getElementById("customerPhone").value.trim();
-        const startDate = document.getElementById("startDate").value;
-        const endDate = document.getElementById("endDate").value;
-        
-        if(!customerName || !customerPhone || !startDate || !endDate) {
-            alert("Veuillez remplir tous les champs");
-            return;
+        const AGENCY_WHATSAPP = "212661081476";
+
+        // Theme management
+        let isDark = true;
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('i');
+
+        function setTheme(dark) {
+            if (dark) {
+                document.body.classList.remove('light');
+                document.body.classList.add('dark');
+                themeIcon.className = 'fas fa-sun';
+            } else {
+                document.body.classList.remove('dark');
+                document.body.classList.add('light');
+                themeIcon.className = 'fas fa-moon';
+            }
+            isDark = dark;
+            localStorage.setItem('hycar_theme', dark ? 'dark' : 'light');
         }
-        
-        const car = cars.find(c => c.id === carId);
-        if(!car) return;
-        
-        const days = Math.ceil((new Date(endDate) - new Date(startDate)) / (1000*3600*24));
-        if(days <= 0) {
-            alert("Date invalide");
-            return;
+
+        themeToggle.addEventListener('click', () => {
+            setTheme(!isDark);
+        });
+
+        const savedTheme = localStorage.getItem('hycar_theme');
+        if (savedTheme === 'light') {
+            setTheme(false);
+        } else {
+            setTheme(true);
         }
-        
-        const total = days * car.price;
-        const message = `Bonjour HY CAR! 👋\n\n📌 NOUVELLE RÉSERVATION\n🚗 ${carName}\n📅 Du ${startDate} au ${endDate}\n📆 ${days} jours\n💰 Total: ${total} DH\n\n👤 Client: ${customerName}\n📞 ${customerPhone}`;
-        
-        window.open(`https://wa.me/${AGENCY_WHATSAPP}?text=${encodeURIComponent(message)}`, '_blank');
-        alert(`✅ Demande envoyée sur WhatsApp ! Total: ${total} DH`);
-        closeModal();
-    });
 
-    document.getElementById("searchInput").addEventListener("input", (e) => {
-        renderCars(e.target.value);
-    });
+        // Render logos
+        function renderLogos() {
+            const container = document.getElementById('logosContainer');
+            if (!container) return;
+            
+            container.innerHTML = carLogos.map(logo => `
+                <img src="${logo.url}" alt="${logo.name} logo" title="${logo.name}" loading="lazy" onerror="this.src='https://placehold.co/200x80?text=${logo.name}'">
+            `).join('');
+        }
 
-    document.querySelectorAll(".close-modal").forEach(el => {
-        el.addEventListener("click", closeModal);
-    });
-    window.onclick = (e) => {
-        if(e.target === document.getElementById("bookingModal")) closeModal();
-    };
+        function renderCars(search = "") {
+            let filtered = cars.filter(c => c.name.toLowerCase().includes(search.toLowerCase()));
+            const grid = document.getElementById("carsGrid");
+            const countSpan = document.getElementById("carsCount");
+            countSpan.innerText = filtered.length + " modèle" + (filtered.length > 1 ? "s" : "");
+            
+            if(filtered.length === 0) {
+                grid.innerHTML = "<p style='text-align:center; grid-column:1/-1;'>Aucune voiture trouvée</p>";
+                return;
+            }
+            
+            grid.innerHTML = filtered.map(car => `
+                <div class="car-card">
+                    <div class="car-image" style="background-image: url('${car.image}'); background-size: cover; background-position: center;">
+                        <div class="car-badge">${car.type}</div>
+                    </div>
+                    <div class="car-details">
+                        <div class="car-name">${car.name}</div>
+                        <div class="car-specs">
+                            <span><i class="fas fa-gas-pump"></i> ${car.fuel}</span>
+                            <span><i class="fas fa-users"></i> ${car.seats} places</span>
+                            <span><i class="fas fa-cog"></i> Auto</span>
+                        </div>
+                        <div class="car-price">${car.price} <span>DH/jour</span></div>
+                        <button class="btn-book" data-id="${car.id}" data-name="${car.name}" data-price="${car.price}">Réserver</button>
+                    </div>
+                </div>
+            `).join('');
+            
+            document.querySelectorAll('.btn-book').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    openModal(parseInt(btn.dataset.id), btn.dataset.name, parseInt(btn.dataset.price));
+                });
+            });
+        }
 
-    // Dates min
-    const today = new Date();
-    today.setDate(today.getDate()+1);
-    document.getElementById("startDate").min = today.toISOString().split('T')[0];
-    document.getElementById("endDate").min = today.toISOString().split('T')[0];
-</script>
+        function renderReviews() {
+            const container = document.getElementById("reviewsGrid");
+            if(!container) return;
+            
+            container.innerHTML = reviews.map(rev => {
+                const initial = rev.name.charAt(0);
+                return `
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="review-avatar">${initial}</div>
+                            <div class="review-info">
+                                <div class="review-name">${rev.name}</div>
+                                <div class="review-stars">${'★'.repeat(rev.rating)}${'☆'.repeat(5-rev.rating)}</div>
+                            </div>
+                        </div>
+                        <div class="review-text">"${rev.text.length > 100 ? rev.text.substring(0,100)+'...' : rev.text}"</div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function openModal(id, name, price) {
+            document.getElementById("carId").value = id;
+            document.getElementById("modalCarName").value = name;
+            const tomorrow = new Date(); tomorrow.setDate(tomorrow.getDate()+1);
+            const later = new Date(); later.setDate(later.getDate()+3);
+            document.getElementById("startDate").value = tomorrow.toISOString().split('T')[0];
+            document.getElementById("endDate").value = later.toISOString().split('T')[0];
+            document.getElementById("customerName").value = "";
+            document.getElementById("bookingModal").style.display = "flex";
+        }
+
+        function closeModal() {
+            document.getElementById("bookingModal").style.display = "none";
+        }
+
+        document.getElementById("goToMain").addEventListener("click", () => {
+            document.getElementById("landingPage").classList.add("hide");
+            setTimeout(() => {
+                document.getElementById("landingPage").style.display = "none";
+                document.getElementById("mainPage").style.display = "block";
+                renderCars("");
+                renderReviews();
+                renderLogos();
+            }, 500);
+        });
+
+        document.getElementById("bookingForm").addEventListener("submit", (e) => {
+            e.preventDefault();
+            const carId = parseInt(document.getElementById("carId").value);
+            const carName = document.getElementById("modalCarName").value;
+            const customerName = document.getElementById("customerName").value.trim();
+            const startDate = document.getElementById("startDate").value;
+            const endDate = document.getElementById("endDate").value;
+            
+            if(!customerName || !startDate || !endDate) {
+                alert("Veuillez remplir tous les champs");
+                return;
+            }
+            
+            const car = cars.find(c => c.id === carId);
+            if(!car) return;
+            
+            const days = Math.ceil((new Date(endDate) - new Date(startDate)) / (1000*3600*24));
+            if(days <= 0) {
+                alert("Date invalide");
+                return;
+            }
+            
+            const total = days * car.price;
+            const message = `Bonjour HY CAR! 👋\n\n📌 NOUVELLE RÉSERVATION\n🚗 ${carName}\n👤 Client: ${customerName}\n📅 Du ${startDate} au ${endDate}\n📆 ${days} jours\n💰 Total: ${total} DH\n\nMerci de confirmer cette réservation.`;
+            
+            window.open(`https://wa.me/${AGENCY_WHATSAPP}?text=${encodeURIComponent(message)}`, '_blank');
+            alert(`✅ Demande envoyée sur WhatsApp ! Total: ${total} DH`);
+            closeModal();
+        });
+
+        document.getElementById("searchInput").addEventListener("input", (e) => {
+            renderCars(e.target.value);
+        });
+
+        document.querySelectorAll(".close-modal").forEach(el => {
+            el.addEventListener("click", closeModal);
+        });
+        window.onclick = (e) => {
+            if(e.target === document.getElementById("bookingModal")) closeModal();
+        };
+
+        const today = new Date();
+        today.setDate(today.getDate()+1);
+        document.getElementById("startDate").min = today.toISOString().split('T')[0];
+        document.getElementById("endDate").min = today.toISOString().split('T')[0];
+    </script>
 </body>
 </html>
