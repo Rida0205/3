@@ -235,7 +235,7 @@
             width: 100%;
         }
 
-        /* Header avec logo au centre - plus élégant */
+        /* Header avec logo au centre */
         .header {
             padding: 0.8rem 2rem;
             position: sticky;
@@ -558,12 +558,13 @@
             line-height: 1.4;
         }
 
-        /* Partners with car logos */
+        /* Partners - horizontal scrolling logos */
         .partners {
             border-top: 1px solid;
             border-bottom: 1px solid;
             padding: 1.5rem 0;
             margin-top: 2rem;
+            overflow: hidden;
         }
         body.dark .partners {
             border-color: #1f1f2a;
@@ -583,39 +584,49 @@
         body.dark .partners h4 { color: #aaa; }
         body.light .partners h4 { color: #888; }
 
-        .logos-container {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-            align-items: center;
+        .logos-wrapper {
+            overflow: hidden;
+            width: 100%;
+            position: relative;
         }
 
-        .logos-container img {
-            height: 35px;
+        .logos-slider {
+            display: flex;
+            gap: 2.5rem;
+            animation: slideLogos 25s linear infinite;
+            width: fit-content;
+        }
+
+        .logos-slider img {
+            height: 40px;
             width: auto;
             opacity: 0.7;
             transition: all 0.2s;
         }
 
-        body.dark .logos-container img {
+        body.dark .logos-slider img {
             filter: brightness(0) invert(0.7);
         }
 
-        body.light .logos-container img {
+        body.light .logos-slider img {
             filter: brightness(0.3) invert(0);
             opacity: 0.6;
         }
 
-        .logos-container img:hover {
+        .logos-slider img:hover {
             opacity: 1;
             filter: brightness(0) invert(0);
             transform: scale(1.05);
         }
 
-        body.light .logos-container img:hover {
+        body.light .logos-slider img:hover {
             filter: brightness(0) invert(0);
             opacity: 1;
+        }
+
+        @keyframes slideLogos {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
 
         footer {
@@ -714,11 +725,11 @@
             .logo-landing h1 {
                 font-size: 3rem;
             }
-            .logos-container img {
-                height: 25px;
+            .logos-slider img {
+                height: 28px;
             }
-            .logos-container {
-                gap: 0.8rem;
+            .logos-slider {
+                gap: 1.5rem;
             }
         }
     </style>
@@ -773,8 +784,8 @@
                 <div class="info-box">
                     <div class="sidebar-title"><i class="fas fa-phone-alt"></i> Contact</div>
                     <div class="info-item"><i class="fab fa-whatsapp"></i> <a href="https://wa.me/212661081476" target="_blank" rel="noopener noreferrer">+212 661 081 476</a></div>
-                    <div class="info-item"><i class="fas fa-envelope"></i> hycar.ma@gmail.com</div>
-                    <div class="info-item"><i class="fas fa-clock"></i> Lun-Sam : 09h - 19h</div>
+                    <div class="info-item"><i class="fas fa-envelope"></i> contact@hycar.ma</div>
+                    <div class="info-item"><i class="fas fa-clock"></i> Lun-Ven: 09h - 19h | Sam: 09h - 16h | Dim: Fermé</div>
                 </div>
             </aside>
 
@@ -795,10 +806,12 @@
             </div>
         </div>
 
-        <!-- Partenaires avec les logos SVG -->
+        <!-- Partenaires avec logos défilants -->
         <div class="partners">
             <h4><i class="fas fa-handshake"></i> NOS PARTENAIRES CONSTRUCTEURS</h4>
-            <div class="logos-container" id="logosContainer"></div>
+            <div class="logos-wrapper">
+                <div class="logos-slider" id="logosSlider"></div>
+            </div>
         </div>
         <footer>
             <p>HY CAR © 2025 — Location de confiance | by Haytam & Yassmin | Location voiture Maroc</p>
@@ -838,7 +851,7 @@
     </div>
 
     <script>
-        // Liste des logos SVG (nouveaux liens)
+        // Liste des logos SVG (sans Mini)
         const carLogos = [
             { name: "BMW", url: "https://www.svgrepo.com/show/330076/bmw.svg" },
             { name: "Mercedes", url: "https://www.svgrepo.com/show/446900/mercedes-benz-alt.svg" },
@@ -852,7 +865,6 @@
             { name: "Fiat", url: "https://www.svgrepo.com/show/446871/fiat.svg" },
             { name: "Ford", url: "https://www.svgrepo.com/show/446869/ford.svg" },
             { name: "Nissan", url: "https://www.svgrepo.com/show/446904/nissan.svg" },
-            { name: "Mini", url: "https://www.svgrepo.com/show/303478/bmw-mini-1-logo.svg" },
             { name: "Toyota", url: "https://www.svgrepo.com/show/446931/toyota.svg" },
             { name: "Jaguar", url: "https://www.svgrepo.com/show/330723/jaguar.svg" },
             { name: "Honda", url: "https://www.svgrepo.com/show/306198/honda.svg" }
@@ -911,14 +923,17 @@
             setTheme(true);
         }
 
-        // Render logos
+        // Render logos avec effet défilant (doublon pour continuité)
         function renderLogos() {
-            const container = document.getElementById('logosContainer');
+            const container = document.getElementById('logosSlider');
             if (!container) return;
             
-            container.innerHTML = carLogos.map(logo => `
+            const logosHtml = carLogos.map(logo => `
                 <img src="${logo.url}" alt="${logo.name} logo" title="${logo.name}" loading="lazy" onerror="this.src='https://placehold.co/200x80?text=${logo.name}'">
             `).join('');
+            
+            // Double le contenu pour un défilement continu
+            container.innerHTML = logosHtml + logosHtml;
         }
 
         function renderCars(search = "") {
